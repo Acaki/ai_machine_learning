@@ -940,7 +940,7 @@ cmath
 istream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/NNtest.cpp
+/media/sf_Downloads/Documents/AI/hw4/Shark/NNtest.cpp
 shark/Data/Csv.h
 -
 shark/Algorithms/Trainers/LDA.h

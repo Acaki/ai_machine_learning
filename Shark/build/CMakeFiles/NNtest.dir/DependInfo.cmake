@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/media/sf_Downloads/Documents/AI/hw4/NNtest.cpp" "/media/sf_Downloads/Documents/AI/hw4/build/CMakeFiles/NNtest.dir/NNtest.cpp.o"
+  "/media/sf_Downloads/Documents/AI/hw4/Shark/NNtest.cpp" "/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles/NNtest.dir/NNtest.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -98,5 +98,5 @@ CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/include/shark/Rng/Rng.h
  ../Shark-3.1.0/include/shark/Rng/Uniform.h
  ../Shark-3.1.0/include/shark/Rng/Weibull.h
- /media/sf_Downloads/Documents/AI/hw4/NNtest.cpp
+ /media/sf_Downloads/Documents/AI/hw4/Shark/NNtest.cpp
  /usr/include/atlas/cblas.h
