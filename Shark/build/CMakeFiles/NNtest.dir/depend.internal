@@ -81,6 +81,7 @@ CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/include/shark/LinAlg/Metrics.h
  ../Shark-3.1.0/include/shark/LinAlg/Tools.h
  ../Shark-3.1.0/include/shark/Models/AbstractModel.h
+ ../Shark-3.1.0/include/shark/Models/Converter.h
  ../Shark-3.1.0/include/shark/Models/FFNet.h
  ../Shark-3.1.0/include/shark/Models/Neurons.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h

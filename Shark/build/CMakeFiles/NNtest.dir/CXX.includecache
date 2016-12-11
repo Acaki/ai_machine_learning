@@ -748,6 +748,12 @@ shark/Rng/Normal.h
 shark/Data/Dataset.h
 -
 
+../Shark-3.1.0/include/shark/Models/Converter.h
+shark/Core/DLLSupport.h
+-
+shark/Models/AbstractModel.h
+-
+
 ../Shark-3.1.0/include/shark/Models/FFNet.h
 shark/Models/AbstractModel.h
 -
@@ -1054,6 +1060,8 @@ istream
 
 /media/sf_Downloads/Documents/AI/hw4/Shark/NNtest.cpp
 shark/Data/Csv.h
+-
+shark/Models/Converter.h
 -
 shark/Models/FFNet.h
 -

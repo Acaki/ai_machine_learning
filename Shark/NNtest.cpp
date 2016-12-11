@@ -1,4 +1,5 @@
 #include <shark/Data/Csv.h>
+#include <shark/Models/Converter.h>
 #include <shark/Models/FFNet.h> //Feed forward neural network class
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
@@ -18,7 +19,7 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	FFNet<LogisticNeuron, LinearNeuron> network;
 	cout << "input dimension = " << inputDimension(trainingset) << endl;
 	cout << "number of classes = " << numberOfClasses(trainingset) << endl;
-	network.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
+	network.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset) - 1);
 	initRandomUniform(network, -0.1, 0.1);
 
 	CrossEntropy loss;
@@ -31,7 +32,15 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 
 	ZeroOneLoss<unsigned int, RealVector> loss01;
 	Data<RealVector> predictions = network(testset.inputs());
-	cout << predictions << endl;
+	//cout << predictions << endl;
+	/*
+	ArgMaxConverter<Model> converter;
+	Data<unsigned int> outputClasses = converter(predictions);
+	cout << outputClasses << endl;
+	*/
+	ThresholdConverter converter;
+	cout << converter(predictions) << endl;
+
 	return loss01(testset.labels(), predictions);
 }
 
@@ -43,7 +52,8 @@ int main( int argc, char ** argv )
 	cout << "number of elements = " << data.numberOfElements() << endl;
 	cout << "number of batches = " << data.numberOfBatches() << endl;
 
-	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
+	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.995*data.numberOfElements()));
+	cout << test << endl;
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 
 	//simple stopping criterion which allows for n iterations (here n = 10,100,500)
