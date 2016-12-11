@@ -14,7 +14,7 @@
 
 3. 把金鑰貼到github帳戶設定內
 
-	詳見此網址：https://help.github.com/articles/ad⋯⋯
+	詳見此網址：https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 	可使用cat ~/.ssh/id_rsa.pub來顯示金鑰
 
 4. 安裝git https://git-scm.com/downloads
