@@ -3,9 +3,16 @@
 
 CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/build/include/shark/Core/Shark.h
+ ../Shark-3.1.0/include/shark/Algorithms/AbstractOptimizer.h
+ ../Shark-3.1.0/include/shark/Algorithms/AbstractSingleObjectiveOptimizer.h
+ ../Shark-3.1.0/include/shark/Algorithms/GradientDescent/Rprop.h
+ ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
+ ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/GeneralizationQuotient.h
+ ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/MaxIterations.h
+ ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
+ ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
- ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractWeightedTrainer.h
- ../Shark-3.1.0/include/shark/Algorithms/Trainers/LDA.h
+ ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
  ../Shark-3.1.0/include/shark/Core/DLLSupport.h
  ../Shark-3.1.0/include/shark/Core/Exception.h
  ../Shark-3.1.0/include/shark/Core/Flags.h
@@ -14,6 +21,7 @@ CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/include/shark/Core/ISerializable.h
  ../Shark-3.1.0/include/shark/Core/Math.h
  ../Shark-3.1.0/include/shark/Core/OpenMP.h
+ ../Shark-3.1.0/include/shark/Core/ResultSets.h
  ../Shark-3.1.0/include/shark/Core/State.h
  ../Shark-3.1.0/include/shark/Core/utility/CanBeCalled.h
  ../Shark-3.1.0/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
@@ -25,7 +33,6 @@ CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/include/shark/Data/Csv.h
  ../Shark-3.1.0/include/shark/Data/Dataset.h
  ../Shark-3.1.0/include/shark/Data/Impl/Dataset.inl
- ../Shark-3.1.0/include/shark/Data/WeightedDataset.h
  ../Shark-3.1.0/include/shark/LinAlg/BLAS/assignment.hpp
  ../Shark-3.1.0/include/shark/LinAlg/BLAS/blas.h
  ../Shark-3.1.0/include/shark/LinAlg/BLAS/detail/functional.hpp
@@ -74,9 +81,17 @@ CMakeFiles/NNtest.dir/NNtest.cpp.o
  ../Shark-3.1.0/include/shark/LinAlg/Metrics.h
  ../Shark-3.1.0/include/shark/LinAlg/Tools.h
  ../Shark-3.1.0/include/shark/Models/AbstractModel.h
- ../Shark-3.1.0/include/shark/Models/Converter.h
- ../Shark-3.1.0/include/shark/Models/LinearClassifier.h
- ../Shark-3.1.0/include/shark/Models/LinearModel.h
+ ../Shark-3.1.0/include/shark/Models/FFNet.h
+ ../Shark-3.1.0/include/shark/Models/Neurons.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractCost.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractObjectiveFunction.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/ErrorFunction.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Impl/ErrorFunction.inl
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
  ../Shark-3.1.0/include/shark/Rng/AbstractDistribution.h
  ../Shark-3.1.0/include/shark/Rng/Bernoulli.h
  ../Shark-3.1.0/include/shark/Rng/Binomial.h
