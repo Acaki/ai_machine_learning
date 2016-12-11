@@ -16,9 +16,9 @@ using namespace std;
 template<class T>
 double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, ClassificationDataset const& trainingset, ClassificationDataset const& testset){
 	FFNet<LogisticNeuron, LinearNeuron> network;
-	//cout << "input dimension = " << inputDimension(trainingset) << endl;
-	//cout << "number of classed = " << numberOfClasses(trainingset) << endl;
-	network.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
+	cout << "input dimension = " << inputDimension(trainingset) << endl;
+	cout << "number of classed = " << numberOfClasses(trainingset) << endl;
+	network.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset) - 1);
 	initRandomUniform(network, -0.1, 0.1);
 
 	CrossEntropy loss;
@@ -31,7 +31,7 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 
 	ZeroOneLoss<unsigned int, RealVector> loss01(0.5);
 	Data<RealVector> predictions = network(testset.inputs());
-	//cout << predictions << endl;
+	cout << predictions << endl;
 	return loss01(testset.labels(), predictions);
 }
 
@@ -39,13 +39,14 @@ int main( int argc, char ** argv )
 {
 	ClassificationDataset data;
 	importCSV(data, argv[1], LAST_COLUMN, ',');
-	data.shuffle();
+	//data.shuffle();
 	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
 	ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 
 	//simple stopping criterion which allows for n iterations (here n = 10,100,500)
 	MaxIterations<> maxIterations(10);
 	double resultMaxIterations1 = experiment(maxIterations,data,test);
+	/*
 	maxIterations.setMaxIterations(100);
 	double resultMaxIterations2 = experiment(maxIterations,data,test);
 	maxIterations.setMaxIterations(500);
@@ -63,13 +64,16 @@ int main( int argc, char ** argv )
 	GeneralizationQuotient<> generalizationQuotient(10,0.1);
 	ValidatedStoppingCriterion validatedLoss(&validationFunction,&generalizationQuotient);
 	double resultGeneralizationQuotient = experiment(validatedLoss,data,test);
+	*/
 
 	//print the results
 	cout << "RESULTS: " << endl;
 	cout << "======== \n" << endl;
 	cout << "10 iterations   : " << resultMaxIterations1 << endl;
+	/*
 	cout << "100 iterations : " << resultMaxIterations2 << endl;
 	cout << "500 iterations : " << resultMaxIterations3 << endl;
 	cout << "training Error : " << resultTrainingError << endl;
 	cout << "generalization Quotient : " << resultGeneralizationQuotient << endl;
+	*/
 }
