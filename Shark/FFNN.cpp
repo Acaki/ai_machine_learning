@@ -29,7 +29,7 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	IRpropPlus optimizer;
 
 	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
-	OptimizationTrainer< FFNet<LogisticNeuron, LinearNeuron>, unsigned int > trainer(&loss, &optimizer, &stoppingCriterion);
+	OptimizationTrainer<FFNet<LogisticNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &stoppingCriterion);
 	trainer.train(network.decisionFunction(), trainingset);
 
 	//default output type of ZeroOneLoss is unsigned int
@@ -40,16 +40,15 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	return loss01(testset.labels(), predictions);
 }
 
-int main( int argc, char ** argv )
+int main()
 {
 	ClassificationDataset data;
-	importCSV(data, argv[1], LAST_COLUMN, ',');
-	//data.shuffle();
+	importCSV(data, "data/Tradata.csv", LAST_COLUMN, ',');
+	data.shuffle();
 	cout << "number of elements = " << data.numberOfElements() << endl;
 	cout << "number of batches = " << data.numberOfBatches() << endl;
 
-	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
-	//cout << test << endl;
+	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.7*data.numberOfElements()));
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 
 	//simple stopping criterion which allows for n iterations (here n = 10,100,500)

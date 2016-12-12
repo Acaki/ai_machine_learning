@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named NNtest
+# Target rules for targets named FFNN
 
 # Build rule for target.
-NNtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NNtest
-.PHONY : NNtest
+FFNN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FFNN
+.PHONY : FFNN
 
 # fast build rule for target.
-NNtest/fast:
-	$(MAKE) -f CMakeFiles/NNtest.dir/build.make CMakeFiles/NNtest.dir/build
-.PHONY : NNtest/fast
+FFNN/fast:
+	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/build
+.PHONY : FFNN/fast
 
-NNtest.o: NNtest.cpp.o
+FFNN.o: FFNN.cpp.o
 
-.PHONY : NNtest.o
+.PHONY : FFNN.o
 
 # target to build an object file
-NNtest.cpp.o:
-	$(MAKE) -f CMakeFiles/NNtest.dir/build.make CMakeFiles/NNtest.dir/NNtest.cpp.o
-.PHONY : NNtest.cpp.o
+FFNN.cpp.o:
+	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.o
+.PHONY : FFNN.cpp.o
 
-NNtest.i: NNtest.cpp.i
+FFNN.i: FFNN.cpp.i
 
-.PHONY : NNtest.i
+.PHONY : FFNN.i
 
 # target to preprocess a source file
-NNtest.cpp.i:
-	$(MAKE) -f CMakeFiles/NNtest.dir/build.make CMakeFiles/NNtest.dir/NNtest.cpp.i
-.PHONY : NNtest.cpp.i
+FFNN.cpp.i:
+	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.i
+.PHONY : FFNN.cpp.i
 
-NNtest.s: NNtest.cpp.s
+FFNN.s: FFNN.cpp.s
 
-.PHONY : NNtest.s
+.PHONY : FFNN.s
 
 # target to generate assembly for a file
-NNtest.cpp.s:
-	$(MAKE) -f CMakeFiles/NNtest.dir/build.make CMakeFiles/NNtest.dir/NNtest.cpp.s
-.PHONY : NNtest.cpp.s
+FFNN.cpp.s:
+	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.s
+.PHONY : FFNN.cpp.s
 
 # Help Target
 help:
@@ -156,12 +156,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... NNtest"
-	@echo "... NNtest.o"
-	@echo "... NNtest.i"
-	@echo "... NNtest.s"
+	@echo "... rebuild_cache"
+	@echo "... FFNN"
+	@echo "... FFNN.o"
+	@echo "... FFNN.i"
+	@echo "... FFNN.s"
 .PHONY : help
 
 
