@@ -91,6 +91,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
+CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Rng/AbstractDistribution.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Rng/Bernoulli.h
