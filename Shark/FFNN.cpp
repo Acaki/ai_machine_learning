@@ -48,17 +48,11 @@ int main()
 	cout << "number of elements = " << data.numberOfElements() << endl;
 	cout << "number of batches = " << data.numberOfBatches() << endl;
 
-	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.7*data.numberOfElements()));
+	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 
-	//simple stopping criterion which allows for n iterations (here n = 10,100,500)
-	MaxIterations<> maxIterations(10);
-	//double resultMaxIterations1 = experiment(maxIterations,data,test);
-
-	maxIterations.setMaxIterations(100);
-	double resultMaxIterations2 = experiment(maxIterations,data,test);
-	//maxIterations.setMaxIterations(500);
-	//double resultMaxIterations3 = experiment(maxIterations,data,test);
+	MaxIterations<> maxIterations(100);
+	double resultMaxIterations = experiment(maxIterations,data,test);
 
 	//TrainingError<> trainingError(10,1.e-5);
 	//double resultTrainingError = experiment(trainingError,data,test);
@@ -75,12 +69,9 @@ int main()
 	double resultGeneralizationQuotient = experiment(validatedLoss,data,test);
 	*/
 
-	//print the results
 	cout << "RESULTS: " << endl;
 	cout << "======== \n" << endl;
-	//cout << "10 iterations   : " << resultMaxIterations1 << endl;
-	cout << "100 iterations : " << resultMaxIterations2 << endl;
-	//cout << "500 iterations : " << resultMaxIterations3 << endl;
+	cout << "test error after 100 iterations : " << resultMaxIterations << endl;
 	//cout << "training Error : " << resultTrainingError << endl;
 	//cout << "generalization Quotient : " << resultGeneralizationQuotient << endl;
 }
