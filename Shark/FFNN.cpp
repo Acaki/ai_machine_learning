@@ -17,7 +17,7 @@ using namespace std;
 template<class T>
 double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, ClassificationDataset const& trainingset, ClassificationDataset const& testset){
 	//use ArgMaxConverter to convert the output vector to binary 0/1
-	ArgMaxConverter<FFNet<LogisticNeuron, LinearNeuron> > network;
+	ArgMaxConverter<FFNet<FastSigmoidNeuron, LinearNeuron> > network;
 	cout << "input dimension = " << inputDimension(trainingset) << endl;
 	cout << "number of classes = " << numberOfClasses(trainingset) << endl;
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
@@ -29,7 +29,7 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	IRpropPlus optimizer;
 
 	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
-	OptimizationTrainer<FFNet<LogisticNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &stoppingCriterion);
+	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &stoppingCriterion);
 	trainer.train(network.decisionFunction(), trainingset);
 
 	//default output type of ZeroOneLoss is unsigned int
