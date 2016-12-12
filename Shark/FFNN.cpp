@@ -3,7 +3,6 @@
 #include <shark/Models/FFNet.h> //Feed forward neural network class
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
-#include <shark/ObjectiveFunctions/Loss/SquaredLoss.h> //Loss used for training
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
@@ -25,7 +24,7 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	network.decisionFunction().setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
 	initRandomUniform(network.decisionFunction(), -0.1, 0.1);
 
-	SquaredLoss<RealVector, unsigned int> loss;
+	CrossEntropy loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
 	IRpropPlus optimizer;
 

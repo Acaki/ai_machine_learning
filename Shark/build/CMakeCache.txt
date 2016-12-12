@@ -143,6 +143,12 @@ FFNN_BINARY_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark/build
 //Value Computed by CMake
 FFNN_SOURCE_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark
 
+//Value Computed by CMake
+SCT_BINARY_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark/build
+
+//Value Computed by CMake
+SCT_SOURCE_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark
+
 //No help, variable specified on the command line.
 Shark_DIR:UNINITIALIZED=/media/sf_Downloads/Documents/AI/hw4/Shark/Shark-3.1.0/build
 
