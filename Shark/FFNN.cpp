@@ -21,7 +21,7 @@ public:
 	MLMethod();
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
-	//void caculateLoss()
+	void calculateLoss(Data<unsigned int> testLabel);
 	double getErrorRate();
 	//Output the predictions with generated hypothesis.
 	template<class T>
@@ -42,8 +42,10 @@ int main()
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	FFNN.trainFeedForwardNN(train);
-	//cout << FFNN << endl;
-	//cout << "error = " << FFNN.getErrorRate() << endl;
+	FFNN.testFeedForwardNN(test.inputs());
+	FFNN.calculateLoss(test.labels());
+	cout << FFNN << endl;
+	cout << "error = " << FFNN.getErrorRate() << endl;
 
 	//TrainingError<> trainingError(10,1.e-5);
 	//double resultTrainingError = experiment(trainingError,data,test);
@@ -97,6 +99,12 @@ template<class ModelType>
 void MLMethod<ModelType>::testFeedForwardNN(UnlabeledData<RealVector> const& testset){
 	ArgMaxConverter<ModelType> network(m_model);
 	m_predictions = network(testset);
+}
+
+template<class ModelType>
+void MLMethod<ModelType>::calculateLoss(Data<unsigned int> testLabel){
+	ZeroOneLoss<> loss;
+	m_error = loss(testLabel, m_predictions);
 }
 
 template<class ModelType>
