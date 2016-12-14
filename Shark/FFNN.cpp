@@ -18,8 +18,7 @@ template<class T>
 double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, ClassificationDataset const& trainingset, ClassificationDataset const& testset){
 	//use ArgMaxConverter to convert the output vector to binary 0/1
 	ArgMaxConverter<FFNet<FastSigmoidNeuron, LinearNeuron> > network;
-	cout << "input dimension = " << inputDimension(trainingset) << endl;
-	cout << "number of classes = " << numberOfClasses(trainingset) << endl;
+
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
 	network.decisionFunction().setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
 	initRandomUniform(network.decisionFunction(), -0.1, 0.1);
@@ -42,16 +41,13 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 
 int main()
 {
-	ClassificationDataset data;
-	importCSV(data, "data/Tradata.csv", LAST_COLUMN, ',');
-	data.shuffle();
-	cout << "number of elements = " << data.numberOfElements() << endl;
-	cout << "number of batches = " << data.numberOfBatches() << endl;
+	ClassificationDataset data, test;
+	importCSV(data, "data/traindata.csv", LAST_COLUMN, ',');
+	importCSV(test, "data/testdata.csv", LAST_COLUMN, ',');
 
-	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
-
-	MaxIterations<> maxIterations(100);
+	size_t maxIter(100);
+	MaxIterations<> maxIterations(maxIter);
 	double resultMaxIterations = experiment(maxIterations,data,test);
 
 	//TrainingError<> trainingError(10,1.e-5);
@@ -69,9 +65,9 @@ int main()
 	double resultGeneralizationQuotient = experiment(validatedLoss,data,test);
 	*/
 
-	cout << "RESULTS: " << endl;
-	cout << "======== \n" << endl;
-	cout << "test error after 100 iterations : " << resultMaxIterations << endl;
+	cout << "test error after " << maxIter << " iterations : " << resultMaxIterations << endl;
+
+
 	//cout << "training Error : " << resultTrainingError << endl;
 	//cout << "generalization Quotient : " << resultGeneralizationQuotient << endl;
 }
