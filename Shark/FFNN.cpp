@@ -21,8 +21,7 @@ public:
 	MLMethod();
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
-	void calculateLoss(Data<unsigned int> testLabel);
-	double getErrorRate();
+	double calculateLoss(Data<unsigned int> testLabel);
 	//Output the predictions with generated hypothesis.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
@@ -43,27 +42,8 @@ int main()
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	FFNN.trainFeedForwardNN(train);
 	FFNN.testFeedForwardNN(test.inputs());
-	FFNN.calculateLoss(test.labels());
 	cout << FFNN << endl;
-	cout << "error = " << FFNN.getErrorRate() << endl;
-
-	//TrainingError<> trainingError(10,1.e-5);
-	//double resultTrainingError = experiment(trainingError,data,test);
-
-	//for the validated stopping criteria we need to define an error function using the validation set
-	/*
-	FFNet<LogisticNeuron,LogisticNeuron> network;
-	network.setStructure(inputDimension(data),10,numberOfClasses(data));
-	CrossEntropy loss;
-	ErrorFunction validationFunction(validation,&network,&loss);
-
-	GeneralizationQuotient<> generalizationQuotient(10,0.1);
-	ValidatedStoppingCriterion validatedLoss(&validationFunction,&generalizationQuotient);
-	double resultGeneralizationQuotient = experiment(validatedLoss,data,test);
-	*/
-
-	//cout << "training Error : " << resultTrainingError << endl;
-	//cout << "generalization Quotient : " << resultGeneralizationQuotient << endl;
+	cout << "error = " << FFNN.calculateLoss(test.labels()) << endl;
 }
 
 template<class ModelType>
@@ -86,13 +66,6 @@ void MLMethod<ModelType>::trainFeedForwardNN(ClassificationDataset const& traini
 	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
 	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &maxIterations);
 	trainer.train(m_model, trainingset);
-
-	/*
-	//default output type of ZeroOneLoss is unsigned int
-	ZeroOneLoss<> loss01;
-	m_predictions = network(testset.inputs());
-	m_error = loss01(testset.labels(), m_predictions);
-	*/
 }
 
 template<class ModelType>
@@ -102,13 +75,9 @@ void MLMethod<ModelType>::testFeedForwardNN(UnlabeledData<RealVector> const& tes
 }
 
 template<class ModelType>
-void MLMethod<ModelType>::calculateLoss(Data<unsigned int> testLabel){
+double MLMethod<ModelType>::calculateLoss(Data<unsigned int> testLabel){
 	ZeroOneLoss<> loss;
 	m_error = loss(testLabel, m_predictions);
-}
-
-template<class ModelType>
-double MLMethod<ModelType>::getErrorRate(){
 	return m_error;
 }
 
