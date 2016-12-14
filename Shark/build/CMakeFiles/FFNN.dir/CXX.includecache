@@ -828,6 +828,10 @@ shark/LinAlg/Base.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
+../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
+shark/ObjectiveFunctions/Loss/AbstractLoss.h
+-
+
 ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
@@ -1072,6 +1076,8 @@ shark/Algorithms/GradientDescent/Rprop.h
 shark/ObjectiveFunctions/Loss/CrossEntropy.h
 -
 shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
+-
+shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
 -
 shark/Algorithms/Trainers/OptimizationTrainer.h
 -

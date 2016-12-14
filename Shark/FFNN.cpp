@@ -5,6 +5,7 @@
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
+#include <shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h>
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
 #include <shark/Algorithms/StoppingCriteria/TrainingError.h> //Stops when the algorithm seems to converge
@@ -58,7 +59,7 @@ void MLMethod<ModelType>::trainFeedForwardNN(ClassificationDataset const& traini
 	m_model.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
 	initRandomUniform(m_model, -0.1, 0.1);
 
-	CrossEntropy loss;
+	SquaredHingeLoss loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
 	IRpropPlus optimizer;
 	MaxIterations<> maxIterations(100);
