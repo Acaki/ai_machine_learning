@@ -23,15 +23,6 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	network.decisionFunction().setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
 	initRandomUniform(network.decisionFunction(), -0.1, 0.1);
 
-	/*
-	size_t numberOfParams = network.decisionFunction().numberOfParameters();
-	RealVector params(numberOfParams);
-	RealVector upperPart(numberOfParams / 2, -0.1);
-	RealVector lowerPart(numberOfParams - numberOfParams / 2, 0.1);
-	init(params) << upperPart, lowerPart;
-	network.decisionFunction().setParameterVector(params);
-	*/
-
 	CrossEntropy loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
 	IRpropPlus optimizer;
@@ -43,38 +34,21 @@ double experiment(AbstractStoppingCriterion<T>& stoppingCriterion, Classificatio
 	//default output type of ZeroOneLoss is unsigned int
 	ZeroOneLoss<> loss01;
 	Data<unsigned int> predictions = network(testset.inputs());
-	//cout << predictions << endl;
+	cout << predictions << endl;
 
 	return loss01(testset.labels(), predictions);
 }
 
 int main()
 {
-	ClassificationDataset data;
-	importCSV(data, "data/Tradata.csv", LAST_COLUMN, ',');
-	data.shuffle();
+	ClassificationDataset data, test;
+	importCSV(data, "data/traindata.csv", LAST_COLUMN, ',');
+	importCSV(test, "data/testdata.csv", LAST_COLUMN, ',');
 
-	ClassificationDataset test = splitAtElement(data, static_cast<size_t>(0.75*data.numberOfElements()));
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
-
 	size_t maxIter(100);
 	MaxIterations<> maxIterations(maxIter);
 	double resultMaxIterations = experiment(maxIterations,data,test);
-
-	/*
-	double bestError = 1.0;
-	size_t bestIter = 0;
-	for (size_t i = 1; i <= 1000; i++){
-		maxIterations.setMaxIterations(i);
-		double resultMaxIterations = experiment(maxIterations,data,test);
-		cout << "maxIterations = " << i << ", error = " << resultMaxIterations << endl;
-		if (resultMaxIterations < bestError){
-			bestError = resultMaxIterations;
-			bestIter = i;
-		}
-	}
-	cout << "bestError = " << bestError << ", bestIter = " << bestIter << endl;
-	*/
 
 	//TrainingError<> trainingError(10,1.e-5);
 	//double resultTrainingError = experiment(trainingError,data,test);
@@ -91,9 +65,6 @@ int main()
 	double resultGeneralizationQuotient = experiment(validatedLoss,data,test);
 	*/
 
-
-	cout << "RESULTS: " << endl;
-	cout << "======== \n" << endl;
 	cout << "test error after " << maxIter << " iterations : " << resultMaxIterations << endl;
 
 
