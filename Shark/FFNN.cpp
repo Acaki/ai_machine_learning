@@ -35,17 +35,17 @@ private:
 
 int main()
 {
-	ClassificationDataset train, test;
-	importCSV(train, "data/traindata.csv", LAST_COLUMN, ',');
-	importCSV(test, "data/testdata.csv", LAST_COLUMN, ',');
+	ClassificationDataset train;
+	UnlabeledData<RealVector> test;
+	importCSV(train, "data/traindata.csv", LAST_COLUMN);
+	importCSV(test, "data/T1.csv");
 
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	FFNN.trainFeedForwardNN(train);
-	FFNN.testFeedForwardNN(test.inputs());
-	FFNN.calculateLoss(test.labels());
+	FFNN.testFeedForwardNN(test);
 	cout << FFNN << endl;
-	cout << "error = " << FFNN.getErrorRate() << endl;
+	//cout << "error = " << FFNN.getErrorRate() << endl;
 
 	//TrainingError<> trainingError(10,1.e-5);
 	//double resultTrainingError = experiment(trainingError,data,test);
