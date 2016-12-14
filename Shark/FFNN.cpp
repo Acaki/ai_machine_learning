@@ -1,4 +1,5 @@
 #include <shark/Data/Csv.h>
+#include <shark/Data/Dataset.h>
 #include <shark/Models/Converter.h>
 #include <shark/Models/FFNet.h> //Feed forward neural network class
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
@@ -14,32 +15,35 @@
 using namespace shark;
 using namespace std;
 
+template<class ModelType>
 class MLMethod{
 public:
 	MLMethod();
-	template<class T>
-	void feedForwardNN(AbstractStoppingCriterion<T>& stoppingCriterion, ClassificationDataset const& trainingset, ClassificationDataset const& testset);
+	void trainFeedForwardNN(ClassificationDataset const& trainingset);
+	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
+	//void caculateLoss()
 	double getErrorRate();
 	//Output the predictions with generated hypothesis.
-	friend ostream& operator <<(ostream& output, const MLMethod& method);
+	template<class T>
+	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
+
 private:
+	ModelType m_model;
 	double m_error;
 	Data<unsigned int> m_predictions;
 };
 
 int main()
 {
-	ClassificationDataset data, test;
-	importCSV(data, "data/traindata.csv", LAST_COLUMN, ',');
+	ClassificationDataset train, test;
+	importCSV(train, "data/traindata.csv", LAST_COLUMN, ',');
 	importCSV(test, "data/testdata.csv", LAST_COLUMN, ',');
 
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
-	MLMethod FFNN;
-	size_t maxIter(100);
-	MaxIterations<> maxIterations(maxIter);
-	FFNN.feedForwardNN(maxIterations,data,test);
-	cout << FFNN << endl;
-	cout << "error = " << FFNN.getErrorRate() << endl;
+	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
+	FFNN.trainFeedForwardNN(train);
+	//cout << FFNN << endl;
+	//cout << "error = " << FFNN.getErrorRate() << endl;
 
 	//TrainingError<> trainingError(10,1.e-5);
 	//double resultTrainingError = experiment(trainingError,data,test);
@@ -60,39 +64,48 @@ int main()
 	//cout << "generalization Quotient : " << resultGeneralizationQuotient << endl;
 }
 
-MLMethod::MLMethod(){
+template<class ModelType>
+MLMethod<ModelType>::MLMethod(){
 	m_error = 1.0;
-	
 }
 
-template<class T>
-void MLMethod::feedForwardNN(AbstractStoppingCriterion<T>& stoppingCriterion, ClassificationDataset const& trainingset, ClassificationDataset const& testset){
-	//use ArgMaxConverter to convert the output vector to binary 0/1
-	ArgMaxConverter<FFNet<FastSigmoidNeuron, LinearNeuron> > network;
+template<class ModelType>
+void MLMethod<ModelType>::trainFeedForwardNN(ClassificationDataset const& trainingset){
 
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
-	network.decisionFunction().setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
-	initRandomUniform(network.decisionFunction(), -0.1, 0.1);
+	m_model.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
+	initRandomUniform(m_model, -0.1, 0.1);
 
 	CrossEntropy loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
 	IRpropPlus optimizer;
+	MaxIterations<> maxIterations(100);
 
 	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
-	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &stoppingCriterion);
-	trainer.train(network.decisionFunction(), trainingset);
+	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &maxIterations);
+	trainer.train(m_model, trainingset);
 
+	/*
 	//default output type of ZeroOneLoss is unsigned int
 	ZeroOneLoss<> loss01;
 	m_predictions = network(testset.inputs());
 	m_error = loss01(testset.labels(), m_predictions);
+	*/
 }
 
-double MLMethod::getErrorRate(){
+template<class ModelType>
+void MLMethod<ModelType>::testFeedForwardNN(UnlabeledData<RealVector> const& testset){
+	ArgMaxConverter<ModelType> network(m_model);
+	m_predictions = network(testset);
+}
+
+template<class ModelType>
+double MLMethod<ModelType>::getErrorRate(){
 	return m_error;
 }
 
-ostream& operator <<(ostream& output, const MLMethod& method){
+template<class T>
+ostream& operator <<(ostream& output, const MLMethod<T>& method){
 	output << method.m_predictions;
 	return output;
 }
