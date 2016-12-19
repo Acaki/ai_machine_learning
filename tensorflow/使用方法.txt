@@ -1,0 +1,4 @@
+1. 確定下載完成(下載教學有確認安裝成功的方法)
+2. 將 machine_learning.py 與另外2個csv檔抓下來(一個是tradatae共2000筆，testdata共1000筆)
+3. 然後執行他
+4. 你會看到很多warning，accuracy就是準確度，然後發現很多0跟1，那就是預測答案(目前還沒輸出至csv中)

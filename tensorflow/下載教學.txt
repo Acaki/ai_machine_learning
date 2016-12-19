@@ -1,4 +1,9 @@
 完整下載流程請參考:  https://www.tensorflow.org/versions/r0.12/get_started/os_setup.html
+
+!!!下載完後，網站上有範例code跟測資，先抓下來執行看看，執行成功代表安裝完成(有一堆warning不要怕，因為我也是這樣QQ)!!!
+!!!!!注意:warning中有出現，"accuracy"多少，就代表安裝成功!!!!!
+
+
 建議裝在linux上，雖然有windows版本，但目前問題還很多，不太推薦。
 
 
