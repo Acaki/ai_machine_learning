@@ -12,6 +12,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
+ ../Shark-3.1.0/include/shark/Algorithms/Trainers/CARTTrainer.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
  ../Shark-3.1.0/include/shark/Core/DLLSupport.h
  ../Shark-3.1.0/include/shark/Core/Exception.h
@@ -84,6 +85,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o
  ../Shark-3.1.0/include/shark/Models/Converter.h
  ../Shark-3.1.0/include/shark/Models/FFNet.h
  ../Shark-3.1.0/include/shark/Models/Neurons.h
+ ../Shark-3.1.0/include/shark/Models/Trees/CARTClassifier.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractCost.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractObjectiveFunction.h
@@ -93,6 +95,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
+ ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
  ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
  ../Shark-3.1.0/include/shark/Rng/AbstractDistribution.h
  ../Shark-3.1.0/include/shark/Rng/Bernoulli.h

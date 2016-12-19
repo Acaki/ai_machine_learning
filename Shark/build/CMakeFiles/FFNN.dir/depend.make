@@ -11,6 +11,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Stopping
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
+CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/CARTTrainer.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Core/DLLSupport.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Core/Exception.h
@@ -83,6 +84,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Models/AbstractMode
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Models/Converter.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Models/FFNet.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Models/Neurons.h
+CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Models/Trees/CARTClassifier.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractCost.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractObjectiveFunction.h
@@ -92,6 +94,7 @@ CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
+CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Rng/AbstractDistribution.h
 CMakeFiles/FFNN.dir/FFNN.cpp.o: ../Shark-3.1.0/include/shark/Rng/Bernoulli.h

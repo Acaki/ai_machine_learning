@@ -3,6 +3,7 @@
 #include <shark/Models/Converter.h>
 #include <shark/Models/FFNet.h> //Feed forward neural network class
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
+#include <shark/Algorithms/Trainers/CARTTrainer.h>     // the CART trainer
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
 #include <shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h>
@@ -22,7 +23,9 @@ public:
 	MLMethod();
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
-	double calculateLoss(Data<unsigned int> testLabel);
+	double evaluateLoss(Data<unsigned int> testLabel);
+	void trainCART(ClassificationDataset const& trainingset);
+	void testCART(UnlabeledData<RealVector> const& testset);
 	//Output the predictions with generated hypothesis.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
@@ -35,16 +38,22 @@ private:
 
 int main()
 {
-	ClassificationDataset train, test;
-	importCSV(train, "data/traindata.csv", LAST_COLUMN);
-	importCSV(test, "data/testdata.csv", LAST_COLUMN);
+	ClassificationDataset trainingset, testset;
+	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
+	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
-	FFNN.trainFeedForwardNN(train);
-	FFNN.testFeedForwardNN(test.inputs());
+	FFNN.trainFeedForwardNN(trainingset);
+	FFNN.testFeedForwardNN(testset.inputs());
 	cout << FFNN << endl;
-	cout << "error = " << FFNN.calculateLoss(test.labels()) << endl;
+	cout << "error = " << FFNN.evaluateLoss(testset.labels()) << endl;
+
+	MLMethod<CARTClassifier<RealVector> > CART;
+	CART.trainCART(trainingset);
+	CART.testCART(testset.inputs());
+	cout << CART << endl;
+	cout << "error = " << CART.evaluateLoss(testset.labels()) << endl;
 }
 
 template<class ModelType>
@@ -76,10 +85,22 @@ void MLMethod<ModelType>::testFeedForwardNN(UnlabeledData<RealVector> const& tes
 }
 
 template<class ModelType>
-double MLMethod<ModelType>::calculateLoss(Data<unsigned int> testLabel){
+double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> testLabel){
 	ZeroOneLoss<> loss;
 	m_error = loss(testLabel, m_predictions);
 	return m_error;
+}
+
+template<class ModelType>
+void MLMethod<ModelType>::trainCART(ClassificationDataset const& trainingset){
+	CARTTrainer trainer;
+	trainer.train(m_model, trainingset);
+}
+
+template<class ModelType>
+void MLMethod<ModelType>::testCART(UnlabeledData<RealVector> const& testset){
+	ArgMaxConverter<ModelType> tree(m_model);
+	m_predictions = tree(testset);
 }
 
 template<class T>

@@ -88,6 +88,16 @@ shark/Data/Dataset.h
 shark/Models/AbstractModel.h
 -
 
+../Shark-3.1.0/include/shark/Algorithms/Trainers/CARTTrainer.h
+shark/Core/DLLSupport.h
+-
+shark/Models/Trees/CARTClassifier.h
+-
+shark/Algorithms/Trainers/AbstractTrainer.h
+-
+boost/unordered_map.hpp
+-
+
 ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
 shark/Algorithms/AbstractSingleObjectiveOptimizer.h
 -
@@ -766,6 +776,16 @@ boost/serialization/vector.hpp
 shark/LinAlg/Base.h
 -
 
+../Shark-3.1.0/include/shark/Models/Trees/CARTClassifier.h
+shark/Models/AbstractModel.h
+-
+shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
+-
+shark/ObjectiveFunctions/Loss/SquaredLoss.h
+-
+shark/Data/Dataset.h
+-
+
 ../Shark-3.1.0/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
 shark/Core/Exception.h
 -
@@ -829,6 +849,10 @@ shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
 ../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
+shark/ObjectiveFunctions/Loss/AbstractLoss.h
+-
+
+../Shark-3.1.0/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
@@ -1072,6 +1096,8 @@ shark/Models/Converter.h
 shark/Models/FFNet.h
 -
 shark/Algorithms/GradientDescent/Rprop.h
+-
+shark/Algorithms/Trainers/CARTTrainer.h
 -
 shark/ObjectiveFunctions/Loss/CrossEntropy.h
 -
