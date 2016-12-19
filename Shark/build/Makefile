@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FFNN
+# Target rules for targets named MLMethod
 
 # Build rule for target.
-FFNN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FFNN
-.PHONY : FFNN
+MLMethod: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MLMethod
+.PHONY : MLMethod
 
 # fast build rule for target.
-FFNN/fast:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/build
-.PHONY : FFNN/fast
+MLMethod/fast:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/build
+.PHONY : MLMethod/fast
 
-FFNN.o: FFNN.cpp.o
+MLMethod.o: MLMethod.cpp.o
 
-.PHONY : FFNN.o
+.PHONY : MLMethod.o
 
 # target to build an object file
-FFNN.cpp.o:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.o
-.PHONY : FFNN.cpp.o
+MLMethod.cpp.o:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.o
+.PHONY : MLMethod.cpp.o
 
-FFNN.i: FFNN.cpp.i
+MLMethod.i: MLMethod.cpp.i
 
-.PHONY : FFNN.i
+.PHONY : MLMethod.i
 
 # target to preprocess a source file
-FFNN.cpp.i:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.i
-.PHONY : FFNN.cpp.i
+MLMethod.cpp.i:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.i
+.PHONY : MLMethod.cpp.i
 
-FFNN.s: FFNN.cpp.s
+MLMethod.s: MLMethod.cpp.s
 
-.PHONY : FFNN.s
+.PHONY : MLMethod.s
 
 # target to generate assembly for a file
-FFNN.cpp.s:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/FFNN.cpp.s
-.PHONY : FFNN.cpp.s
+MLMethod.cpp.s:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.s
+.PHONY : MLMethod.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... FFNN"
-	@echo "... FFNN.o"
-	@echo "... FFNN.i"
-	@echo "... FFNN.s"
+	@echo "... MLMethod"
+	@echo "... MLMethod.o"
+	@echo "... MLMethod.i"
+	@echo "... MLMethod.s"
 .PHONY : help
 
 

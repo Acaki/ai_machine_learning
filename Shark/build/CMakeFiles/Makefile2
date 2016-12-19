@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark
 CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/FFNN.dir
+# Target rules for target CMakeFiles/MLMethod.dir
 
 # All Build rule for target.
-CMakeFiles/FFNN.dir/all:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/depend
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=1,2 "Built target FFNN"
-.PHONY : CMakeFiles/FFNN.dir/all
+CMakeFiles/MLMethod.dir/all:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/depend
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=1,2 "Built target MLMethod"
+.PHONY : CMakeFiles/MLMethod.dir/all
 
 # Include target in all.
-all: CMakeFiles/FFNN.dir/all
+all: CMakeFiles/MLMethod.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/FFNN.dir/rule: cmake_check_build_system
+CMakeFiles/MLMethod.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FFNN.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MLMethod.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles 0
-.PHONY : CMakeFiles/FFNN.dir/rule
+.PHONY : CMakeFiles/MLMethod.dir/rule
 
 # Convenience name for target.
-FFNN: CMakeFiles/FFNN.dir/rule
+MLMethod: CMakeFiles/MLMethod.dir/rule
 
-.PHONY : FFNN
-
-# clean rule for target.
-CMakeFiles/FFNN.dir/clean:
-	$(MAKE) -f CMakeFiles/FFNN.dir/build.make CMakeFiles/FFNN.dir/clean
-.PHONY : CMakeFiles/FFNN.dir/clean
+.PHONY : MLMethod
 
 # clean rule for target.
-clean: CMakeFiles/FFNN.dir/clean
+CMakeFiles/MLMethod.dir/clean:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/clean
+.PHONY : CMakeFiles/MLMethod.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/MLMethod.dir/clean
 
 .PHONY : clean
 
