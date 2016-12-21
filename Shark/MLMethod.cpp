@@ -25,10 +25,8 @@ public:
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> testLabel);
-	void trainCART(ClassificationDataset const& trainingset);
-	void testCART(UnlabeledData<RealVector> const& testset);
-	void trainRF(ClassificationDataset const& trainingset);
-	void testRF(UnlabeledData<RealVector> const& testset);
+	template<class TrainerType>
+	void trainAndTest(ClassificationDataset const& trainingset, UnlabeledData<RealVector> const& testset);
 	//Output the predictions with generated hypothesis.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
@@ -53,14 +51,12 @@ int main()
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<CARTClassifier<RealVector> > CART;
-	CART.trainCART(trainingset);
-	CART.testCART(testset.inputs());
+	CART.trainAndTest<CARTTrainer>(trainingset, testset.inputs());
 	//cout << CART << endl;
 	cout << "CART error = " << CART.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<RFClassifier> RF;
-	RF.trainRF(trainingset);
-	RF.testRF(testset.inputs());
+	RF.trainAndTest<RFTrainer>(trainingset, testset.inputs());
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
@@ -101,27 +97,12 @@ double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> testLabel){
 }
 
 template<class ModelType>
-void MLMethod<ModelType>::trainCART(ClassificationDataset const& trainingset){
-	CARTTrainer trainer;
+template<class TrainerType>
+void MLMethod<ModelType>::trainAndTest(ClassificationDataset const& trainingset, UnlabeledData<RealVector> const& testset){
+	TrainerType trainer;
 	trainer.train(m_model, trainingset);
-}
-
-template<class ModelType>
-void MLMethod<ModelType>::testCART(UnlabeledData<RealVector> const& testset){
-	ArgMaxConverter<ModelType> tree(m_model);
-	m_predictions = tree(testset);
-}
-
-template<class ModelType>
-void MLMethod<ModelType>::trainRF(ClassificationDataset const& trainingset){
-	RFTrainer trainer;
-	trainer.train(m_model, trainingset);
-}
-
-template<class ModelType>
-void MLMethod<ModelType>::testRF(UnlabeledData<RealVector> const& testset){
-	ArgMaxConverter<ModelType> tree(m_model);
-	m_predictions = tree(testset);
+	ArgMaxConverter<ModelType> converter(m_model);
+	m_predictions = converter(testset);
 }
 
 template<class T>
