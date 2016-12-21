@@ -25,8 +25,8 @@ public:
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> testLabel);
-	template<class TrainerType>
-	void trainAndTest(ClassificationDataset const& trainingset, UnlabeledData<RealVector> const& testset);
+	template<class TrainerType> void train(ClassificationDataset const& trainingset);
+	void test(UnlabeledData<RealVector> const& testset);
 	//Output the predictions with generated hypothesis.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
@@ -46,17 +46,19 @@ int main()
 	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	FFNN.trainFeedForwardNN(trainingset);
-	FFNN.testFeedForwardNN(testset.inputs());
+	FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<CARTClassifier<RealVector> > CART;
-	CART.trainAndTest<CARTTrainer>(trainingset, testset.inputs());
+	CART.train<CARTTrainer>(trainingset);
+	CART.test(testset.inputs());
 	//cout << CART << endl;
 	cout << "CART error = " << CART.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<RFClassifier> RF;
-	RF.trainAndTest<RFTrainer>(trainingset, testset.inputs());
+	RF.train<RFTrainer>(trainingset);
+	RF.test(testset.inputs());
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
@@ -84,12 +86,6 @@ void MLMethod<ModelType>::trainFeedForwardNN(ClassificationDataset const& traini
 }
 
 template<class ModelType>
-void MLMethod<ModelType>::testFeedForwardNN(UnlabeledData<RealVector> const& testset){
-	ArgMaxConverter<ModelType> network(m_model);
-	m_predictions = network(testset);
-}
-
-template<class ModelType>
 double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> testLabel){
 	ZeroOneLoss<> loss;
 	m_error = loss(testLabel, m_predictions);
@@ -98,9 +94,13 @@ double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> testLabel){
 
 template<class ModelType>
 template<class TrainerType>
-void MLMethod<ModelType>::trainAndTest(ClassificationDataset const& trainingset, UnlabeledData<RealVector> const& testset){
+void MLMethod<ModelType>::train(ClassificationDataset const& trainingset){
 	TrainerType trainer;
 	trainer.train(m_model, trainingset);
+}
+
+template<class ModelType>
+void MLMethod<ModelType>::test(UnlabeledData<RealVector> const& testset){
 	ArgMaxConverter<ModelType> converter(m_model);
 	m_predictions = converter(testset);
 }
