@@ -12,7 +12,6 @@ CMakeFiles/MLMethod.dir/MLMethod.cpp.o
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
- ../Shark-3.1.0/include/shark/Algorithms/Trainers/CARTTrainer.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/RFTrainer.h
  ../Shark-3.1.0/include/shark/Core/DLLSupport.h

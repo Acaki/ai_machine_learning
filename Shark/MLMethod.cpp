@@ -3,7 +3,6 @@
 #include <shark/Models/Converter.h>
 #include <shark/Models/FFNet.h> //Feed forward neural network class
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
-#include <shark/Algorithms/Trainers/CARTTrainer.h>     // the CART trainer
 #include <shark/Algorithms/Trainers/RFTrainer.h> //the random forest trainer
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
@@ -48,12 +47,6 @@ int main()
 	FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
-
-	MLMethod<CARTClassifier<RealVector> > CART;
-	CART.train<CARTTrainer>(trainingset);
-	CART.test(testset.inputs());
-	//cout << CART << endl;
-	cout << "CART error = " << CART.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<RFClassifier> RF;
 	RF.train<RFTrainer>(trainingset);
