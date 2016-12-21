@@ -10,3 +10,4 @@ include(${SHARK_USE_FILE})
 # Executable
 add_executable(MLMethod MLMethod.cpp)
 target_link_libraries(MLMethod ${SHARK_LIBRARIES})
+target_compile_features(MLMethod PRIVATE cxx_range_for)
