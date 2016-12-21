@@ -43,7 +43,6 @@ int main()
 	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
 	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
-	//ClassificationDataset validation = splitAtElement(data,static_cast<std::size_t>(0.66*data.numberOfElements()));
 	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	FFNN.trainFeedForwardNN(trainingset);
 	FFNN.test(testset.inputs());
