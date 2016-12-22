@@ -7,10 +7,7 @@ CMakeFiles/MLMethod.dir/MLMethod.cpp.o
  ../Shark-3.1.0/include/shark/Algorithms/AbstractSingleObjectiveOptimizer.h
  ../Shark-3.1.0/include/shark/Algorithms/GradientDescent/Rprop.h
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
- ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/GeneralizationQuotient.h
  ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/MaxIterations.h
- ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
- ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
  ../Shark-3.1.0/include/shark/Algorithms/Trainers/RFTrainer.h

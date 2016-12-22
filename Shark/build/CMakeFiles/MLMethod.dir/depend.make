@@ -6,10 +6,7 @@ CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/AbstractSingleObjectiveOptimizer.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/GradientDescent/Rprop.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
-CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/GeneralizationQuotient.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/MaxIterations.h
-CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/TrainingError.h
-CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/AbstractTrainer.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/OptimizationTrainer.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark-3.1.0/include/shark/Algorithms/Trainers/RFTrainer.h

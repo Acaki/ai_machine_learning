@@ -9,9 +9,6 @@
 #include <shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h>
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
-#include <shark/Algorithms/StoppingCriteria/TrainingError.h> //Stops when the algorithm seems to converge
-#include <shark/Algorithms/StoppingCriteria/GeneralizationQuotient.h> //Uses the validation error to track the progress
-#include <shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h> //Adds the validation error to the value of the point
 #include <iostream>
 #include <algorithm>
 #include <functional>
@@ -26,8 +23,11 @@ public:
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> const& testLabel);
+	//Train the classifier with the given trainer type.
 	template<class TrainerType> void train(ClassificationDataset const& trainingset);
+	//Test the trained classifier.
 	void test(UnlabeledData<RealVector> const& testset);
+	//Precondition: indivs specify the number of members of the commitee.
 	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs);
 	//Output the predictions with generated hypothesis.
 	template<class T>
@@ -51,8 +51,6 @@ int main()
 	//cout << FFNN << endl;
 	FFNN.ensemble(trainingset, testset, 100);
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
-
-
 
 	//MLMethod<RFClassifier> RF;
 	//RF.train<RFTrainer>(trainingset);
@@ -111,6 +109,7 @@ void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, Cla
 
 	typedef Data<unsigned int>::element_range Elements;
 	Elements indivElements;
+	unsigned int totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
 		/*
 		if (i % 2){
@@ -125,15 +124,22 @@ void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, Cla
 		MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > individual;
 		individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
-		cout << "FFNN Loss " << i << " = " << individual.evaluateLoss(testset.labels()) << endl;
+		double indivLoss = individual.evaluateLoss(testset.labels());
+		unsigned int indivWeight = (1 - indivLoss) * 10000000;
+		cout << "weight = " << indivWeight << endl;
+		totalWeight += indivWeight;
+		cout << "FFNN Loss " << i << " = " << indivLoss << endl;
+
 		indivElements = individual.m_predictions.elements();
+		transform(indivElements.begin(), indivElements.end(), indivElements.begin(), bind2nd(multiplies<double>(), indivWeight));
+		//cout << individual.m_predictions << endl;
 		transform(vote.begin(), vote.end(), indivElements.begin(), vote.begin(), plus<unsigned int>());
 	}
 
-
-	transform(vote.begin(), vote.end(), vote.begin(), bind2nd(divides<unsigned int>(), indivs / 2 + 1));
+	transform(vote.begin(), vote.end(), vote.begin(), bind2nd(divides<unsigned int>(), totalWeight / 2 + 1));
+	cout << "\n\n\n\n";
 	m_predictions = createDataFromRange(vote);
-	cout << m_predictions << endl;
+	//cout << m_predictions << endl;
 }
 
 template<class T>
