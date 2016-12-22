@@ -28,7 +28,7 @@ public:
 	double evaluateLoss(Data<unsigned int> const& testLabel);
 	template<class TrainerType> void train(ClassificationDataset const& trainingset);
 	void test(UnlabeledData<RealVector> const& testset);
-	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset);
+	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs);
 	//Output the predictions with generated hypothesis.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
@@ -56,7 +56,7 @@ int main()
 	MLMethod<RFClassifier> RF;
 	//RF.train<RFTrainer>(trainingset);
 	//RF.test(testset.inputs());
-	RF.ensemble(trainingset, testset);
+	RF.ensemble(trainingset, testset, 200);
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
@@ -104,12 +104,12 @@ double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> const& testLabel){
 }
 
 template<class ModelType>
-void MLMethod<ModelType>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset){
+void MLMethod<ModelType>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
 	size_t predictSize = testset.numberOfElements();
 	vector<unsigned int> vote(predictSize, 0);
 
 	typedef Data<unsigned int>::element_range Elements;
-	for (size_t i = 0; i < 10; i++){
+	for (size_t i = 0; i < indivs; i++){
 		MLMethod<RFClassifier> individual;
 		individual.train<RFTrainer>(trainingset);
 		individual.test(testset.inputs());
@@ -118,15 +118,9 @@ void MLMethod<ModelType>::ensemble(ClassificationDataset const& trainingset, Cla
 		Elements indivElements = individual.m_predictions.elements();
 		transform(vote.begin(), vote.end(), indivElements.begin(), vote.begin(), plus<unsigned int>());
 	}
-
-	//transform(vote.begin(), vote.end(), vote.begin(), bind1st(divides<unsigned int>(), 6));
-	/*
-	for (auto pos = voteElements.begin(); pos != voteElements.end(); ++pos)
-		*pos /= 3;
-	*/
+	transform(vote.begin(), vote.end(), vote.begin(), bind2nd(divides<unsigned int>(), indivs / 2 + 1));
 	m_predictions = createDataFromRange(vote);
 	cout << m_predictions << endl;
-	//cout << "error = " << evaluateLoss(testset.labels()) << endl;
 }
 
 template<class T>
