@@ -1127,6 +1127,10 @@ shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h
 -
 iostream
 -
+algorithm
+-
+functional
+-
 
 /usr/include/atlas/cblas.h
 

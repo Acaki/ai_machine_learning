@@ -13,6 +13,8 @@
 #include <shark/Algorithms/StoppingCriteria/GeneralizationQuotient.h> //Uses the validation error to track the progress
 #include <shark/Algorithms/StoppingCriteria/ValidatedStoppingCriterion.h> //Adds the validation error to the value of the point
 #include <iostream>
+#include <algorithm>
+#include <functional>
 
 using namespace shark;
 using namespace std;
@@ -104,27 +106,26 @@ double MLMethod<ModelType>::evaluateLoss(Data<unsigned int> const& testLabel){
 template<class ModelType>
 void MLMethod<ModelType>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset){
 	size_t predictSize = testset.numberOfElements();
-	unsigned int init = 0;
-	Data<unsigned int> vote(predictSize, init);
+	vector<unsigned int> vote(predictSize, 0);
 
 	typedef Data<unsigned int>::element_range Elements;
-	Elements voteElements = vote.elements();
-	for (size_t i = 0; i < 1; i++){
+	for (size_t i = 0; i < 10; i++){
 		MLMethod<RFClassifier> individual;
 		individual.train<RFTrainer>(trainingset);
 		individual.test(testset.inputs());
 		cout << "Loss " << i << " = " << individual.evaluateLoss(testset.labels()) << endl;
 
 		Elements indivElements = individual.m_predictions.elements();
-		for (auto pos1 = voteElements.begin(), pos2 = indivElements.begin(); pos1 != voteElements.end(); ++pos1, ++pos2)
-				*pos1 = *pos1 + *pos2;
+		transform(vote.begin(), vote.end(), indivElements.begin(), vote.begin(), plus<unsigned int>());
 	}
-	cout << vote << endl;
+
+	//transform(vote.begin(), vote.end(), vote.begin(), bind1st(divides<unsigned int>(), 6));
 	/*
 	for (auto pos = voteElements.begin(); pos != voteElements.end(); ++pos)
 		*pos /= 3;
 	*/
-	m_predictions = vote;
+	m_predictions = createDataFromRange(vote);
+	cout << m_predictions << endl;
 	//cout << "error = " << evaluateLoss(testset.labels()) << endl;
 }
 
