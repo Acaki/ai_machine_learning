@@ -138,6 +138,12 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+DeepNetworkTraining_BINARY_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark/build
+
+//Value Computed by CMake
+DeepNetworkTraining_SOURCE_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark
+
+//Value Computed by CMake
 MLMethod_BINARY_DIR:STATIC=/media/sf_Downloads/Documents/AI/hw4/Shark/build
 
 //Value Computed by CMake

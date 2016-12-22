@@ -49,7 +49,7 @@ int main()
 	//FFNN.trainFeedForwardNN(trainingset);
 	//FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
-	FFNN.ensemble(trainingset, testset, 1000);
+	FFNN.ensemble(trainingset, testset, 100);
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
 
@@ -72,7 +72,7 @@ void MLMethod<Classfier>::trainFeedForwardNN(ClassificationDataset const& traini
 
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
 	m_classifier.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
-	initRandomUniform(m_classifier, -0.1, 0.1);
+	initRandomUniform(m_classifier, -0.5, 0.5);
 
 	SquaredHingeLoss loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
