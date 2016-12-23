@@ -90,34 +90,19 @@ MLMethod_EXTERNAL_OBJECTS =
 
 MLMethod: CMakeFiles/MLMethod.dir/MLMethod.cpp.o
 MLMethod: CMakeFiles/MLMethod.dir/build.make
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_system.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
 MLMethod: /usr/lib/x86_64-linux-gnu/libboost_serialization.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libpthread.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libpthread.so
-MLMethod: /usr/lib/liblapack.so
-MLMethod: /usr/lib/libcblas.so
-MLMethod: /usr/lib/libatlas.so
-MLMethod: ../Shark-3.1.0/build/lib/libshark.a
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_system.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 MLMethod: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_serialization.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-MLMethod: /usr/lib/x86_64-linux-gnu/libpthread.so
+MLMethod: /usr/lib/x86_64-linux-gnu/libboost_system.so
 MLMethod: /usr/lib/liblapack.so
-MLMethod: /usr/lib/libcblas.so
-MLMethod: /usr/lib/libatlas.so
+MLMethod: /usr/lib/libblas/libblas.so
+MLMethod: /usr/lib/atlas-base/libatlas.so
+MLMethod: ../Shark/build/lib/libshark.a
+MLMethod: /usr/lib/x86_64-linux-gnu/libboost_serialization.so
+MLMethod: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+MLMethod: /usr/lib/x86_64-linux-gnu/libboost_system.so
+MLMethod: /usr/lib/liblapack.so
+MLMethod: /usr/lib/libblas/libblas.so
+MLMethod: /usr/lib/atlas-base/libatlas.so
 MLMethod: CMakeFiles/MLMethod.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MLMethod"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MLMethod.dir/link.txt --verbose=$(VERBOSE)

@@ -6,5 +6,5 @@ CXX_FLAGS =  -fopenmp -O3 -DNDEBUG   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/atlas -I/media/sf_Downloads/Documents/AI/hw4/Shark/Shark-3.1.0/build/include -I/media/sf_Downloads/Documents/AI/hw4/Shark/Shark-3.1.0/include 
+CXX_INCLUDES = -I/usr/include/atlas -I/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/build/include -I/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include 
 

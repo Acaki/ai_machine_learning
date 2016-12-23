@@ -45,19 +45,19 @@ int main()
 	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
 	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
-	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
+	//MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
 	//FFNN.trainFeedForwardNN(trainingset);
 	//FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
-	FFNN.ensemble(trainingset, testset, 100);
-	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
+	//FFNN.ensemble(trainingset, testset, 100);
+	//cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
-	//MLMethod<RFClassifier> RF;
+	MLMethod<RFClassifier> RF;
 	//RF.train<RFTrainer>(trainingset);
 	//RF.test(testset.inputs());
-	//RF.ensemble(trainingset, testset, 200);
+	RF.ensemble(trainingset, testset, 100);
 	//cout << RF << endl;
-	//cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
+	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
 
 template<class Classfier>
@@ -111,24 +111,18 @@ void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, Cla
 	Elements indivElements;
 	unsigned int totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
-		/*
-		if (i % 2){
-			MLMethod<RFClassifier> individual;
-			individual.train<RFTrainer>(trainingset);
-			individual.test(testset.inputs());
-			cout << "RF Loss " << i << " = " << individual.evaluateLoss(testset.labels()) << endl;
-			indivElements = individual.m_predictions.elements();
-		}
-		else{
-		*/
-		MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > individual;
-		individual.trainFeedForwardNN(trainingset);
+
+		MLMethod<RFClassifier> individual;
+		individual.train<RFTrainer>(trainingset);
+
+		//MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > individual;
+		//individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
 		double indivLoss = individual.evaluateLoss(testset.labels());
 		unsigned int indivWeight = (1 - indivLoss) * 10000000;
 		cout << "weight = " << indivWeight << endl;
 		totalWeight += indivWeight;
-		cout << "FFNN Loss " << i << " = " << indivLoss << endl;
+		cout << "Loss " << i << " = " << indivLoss << endl;
 
 		indivElements = individual.m_predictions.elements();
 		transform(indivElements.begin(), indivElements.end(), indivElements.begin(), bind2nd(multiplies<double>(), indivWeight));
