@@ -109,30 +109,37 @@ void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& t
 
 void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
 	size_t predictSize = testset.numberOfElements();
-	vector<unsigned int> vote(predictSize, 0);
+	vector<double> vote(predictSize, 0);
 
 	typedef Data<unsigned int>::element_range Elements;
 	Elements indivElements;
-	unsigned int totalWeight = 0;
+	double totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
 		FeedForwardNeuralNetwork individual(trainingset);
 		individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
+
 		double indivLoss = individual.evaluateLoss(testset.labels());
-		unsigned int indivWeight = (1 - indivLoss) * 10000000;
-		cout << "weight = " << indivWeight << endl;
+		double indivWeight = 1 - indivLoss;
 		totalWeight += indivWeight;
-		cout << "Loss " << i << " = " << indivLoss << endl;
+		cout << "weight " << i << " = " << indivWeight << endl;
 
+		vector<double> weightedVote;
 		indivElements = individual.m_predictions.elements();
-		transform(indivElements.begin(), indivElements.end(), indivElements.begin(), bind2nd(multiplies<double>(), indivWeight));
-		//cout << individual.m_predictions << endl;
-		transform(vote.begin(), vote.end(), indivElements.begin(), vote.begin(), plus<unsigned int>());
-	}
+		for (auto const &pos: indivElements)
+			weightedVote.push_back(pos);
 
-	transform(vote.begin(), vote.end(), vote.begin(), bind2nd(divides<unsigned int>(), totalWeight / 2 + 1));
-	cout << "\n\n\n\n";
-	m_predictions = createDataFromRange(vote);
+		//Multiply each vote with a weight proportional to its error rate.
+		transform(weightedVote.begin(), weightedVote.end(), weightedVote.begin(), bind2nd(multiplies<double>(), indivWeight));
+		//Accumulate the weighted vote
+		transform(vote.begin(), vote.end(), weightedVote.begin(), vote.begin(), plus<double>());
+	}
+	//Determine majority
+	for (auto &pos: vote)
+		pos = (totalWeight - pos) >= (pos - 0) ? 0 : 1;
+
+	vector<unsigned int> finalPredictions(vote.begin(), vote.end());
+	m_predictions = createDataFromRange(finalPredictions);
 }
 
 void RandomForest::train(ClassificationDataset const& trainingset){
