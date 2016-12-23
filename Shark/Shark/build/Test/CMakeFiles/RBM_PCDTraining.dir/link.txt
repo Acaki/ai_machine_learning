@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp -O3 -DNDEBUG    CMakeFiles/RBM_PCDTraining.dir/RBM/PCDTraining.cpp.o  -o ../bin/RBM_PCDTraining -rdynamic ../lib/libshark.a -lboost_unit_test_framework -lboost_serialization -lboost_filesystem -lboost_system -llapack /usr/lib/libblas/libblas.so /usr/lib/atlas-base/libatlas.so -Wl,-rpath,/usr/lib/libblas:/usr/lib/atlas-base 

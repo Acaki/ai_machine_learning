@@ -1,0 +1,7 @@
+/home/acaki/Shark/doc/CMakeFiles/edit_cache.dir
+/home/acaki/Shark/doc/CMakeFiles/rebuild_cache.dir
+/home/acaki/Shark/doc/CMakeFiles/doc.dir
+/home/acaki/Shark/doc/CMakeFiles/doc_creation.dir
+/home/acaki/Shark/doc/tutToRst/CMakeFiles/edit_cache.dir
+/home/acaki/Shark/doc/tutToRst/CMakeFiles/rebuild_cache.dir
+/home/acaki/Shark/doc/tutToRst/CMakeFiles/tut2rst.dir
