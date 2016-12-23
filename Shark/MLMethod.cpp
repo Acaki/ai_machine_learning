@@ -23,6 +23,7 @@ public:
 	//Test the trained classifier.
 	void test(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> const& testLabel);
+	vector<double> calWeightedVote();
 	//Output the predictions with generated predictions.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis);
@@ -90,6 +91,21 @@ ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis){
 	return output;
 }
 
+template<class Classfier>
+vector<double> Hypothesis<Classfier>::calWeightedVote(){
+	vector<double> weightedVote;
+	typedef Data<unsigned int>::element_range Elements;
+	Elements indivElements = m_predictions.elements();
+	for (auto const &pos: indivElements){
+		weightedVote.push_back(pos);
+	}
+	double indivWeight = 1 - m_error;
+	//Multiply each vote with a weight proportional to its error rate.
+	transform(weightedVote.begin(), weightedVote.end(), weightedVote.begin(), bind2nd(multiplies<double>(), indivWeight));
+
+	return weightedVote;
+}
+
 FeedForwardNeuralNetwork::FeedForwardNeuralNetwork(ClassificationDataset const& trainingset){
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
 	m_classifier.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
@@ -110,27 +126,17 @@ void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& t
 void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
 	size_t predictSize = testset.numberOfElements();
 	vector<double> vote(predictSize, 0);
-
-	typedef Data<unsigned int>::element_range Elements;
-	Elements indivElements;
 	double totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
 		FeedForwardNeuralNetwork individual(trainingset);
 		individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
+		individual.m_error = individual.evaluateLoss(testset.labels());
+		double indivWeight = 1 - individual.m_error;
+		vector<double> weightedVote = individual.calWeightedVote();
 
-		double indivLoss = individual.evaluateLoss(testset.labels());
-		double indivWeight = 1 - indivLoss;
 		totalWeight += indivWeight;
 		cout << "weight " << i << " = " << indivWeight << endl;
-
-		vector<double> weightedVote;
-		indivElements = individual.m_predictions.elements();
-		for (auto const &pos: indivElements)
-			weightedVote.push_back(pos);
-
-		//Multiply each vote with a weight proportional to its error rate.
-		transform(weightedVote.begin(), weightedVote.end(), weightedVote.begin(), bind2nd(multiplies<double>(), indivWeight));
 		//Accumulate the weighted vote
 		transform(vote.begin(), vote.end(), weightedVote.begin(), vote.begin(), plus<double>());
 	}
