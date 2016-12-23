@@ -23,7 +23,7 @@ public:
 	//Test the trained classifier.
 	void test(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> const& testLabel);
-	//Output the predictions with generated hypothesis.
+	//Output the predictions with generated predictions.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis);
 protected:
@@ -35,6 +35,8 @@ protected:
 class FeedForwardNeuralNetwork : public Hypothesis<FFNet<FastSigmoidNeuron, LinearNeuron> >
 {
 public:
+	FeedForwardNeuralNetwork() {}
+	FeedForwardNeuralNetwork(ClassificationDataset const& trainingset);
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
 	//Precondition: indivs specify the number of members of the commitee.
 	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs);
@@ -53,12 +55,13 @@ int main(){
 	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
 	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
-	FeedForwardNeuralNetwork FFNN;
-	FFNN.trainFeedForwardNN(trainingset);
-	FFNN.test(testset.inputs());
+	FeedForwardNeuralNetwork FFNN(trainingset);
+	//FFNN.trainFeedForwardNN(trainingset);
+	//FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
-	//FFNN.ensemble(trainingset, testset, 100);
+	FFNN.ensemble(trainingset, testset, 100);
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
+
 
 	RandomForest RF;
 	RF.train(trainingset);
@@ -66,26 +69,6 @@ int main(){
 	//RF.ensemble(trainingset, testset, 1);
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
-}
-
-void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& trainingset){
-
-	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
-	m_classifier.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
-	initRandomUniform(m_classifier, -0.5, 0.5);
-
-	SquaredHingeLoss loss;
-	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
-	IRpropPlus optimizer;
-	MaxIterations<> maxIterations(100);
-
-	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
-	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &maxIterations);
-	trainer.train(m_classifier, trainingset);
-}
-
-void RandomForest::train(ClassificationDataset const& trainingset){
-	m_trainer.train(m_classifier, trainingset);
 }
 
 template<class Classfier>
@@ -101,6 +84,29 @@ double Hypothesis<Classfier>::evaluateLoss(Data<unsigned int> const& testLabel){
 	return m_error;
 }
 
+template<class T>
+ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis){
+	output << hypothesis.m_predictions;
+	return output;
+}
+
+FeedForwardNeuralNetwork::FeedForwardNeuralNetwork(ClassificationDataset const& trainingset){
+	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
+	m_classifier.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
+	initRandomUniform(m_classifier, -0.1, 0.1);
+}
+
+void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& trainingset){
+	SquaredHingeLoss loss;
+	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
+	IRpropPlus optimizer;
+	MaxIterations<> maxIterations(100);
+
+	//Constructor: shark::OptimizationTrainer< Model, LabelTypeT >::OptimizationTrainer	(	LossType * 	loss, OptimizerType * 	optimizer, StoppingCriterionType * 	stoppingCriterion )
+	OptimizationTrainer<FFNet<FastSigmoidNeuron, LinearNeuron>, unsigned int> trainer(&loss, &optimizer, &maxIterations);
+	trainer.train(m_classifier, trainingset);
+}
+
 void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
 	size_t predictSize = testset.numberOfElements();
 	vector<unsigned int> vote(predictSize, 0);
@@ -109,7 +115,7 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 	Elements indivElements;
 	unsigned int totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
-		FeedForwardNeuralNetwork individual;
+		FeedForwardNeuralNetwork individual(trainingset);
 		individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
 		double indivLoss = individual.evaluateLoss(testset.labels());
@@ -127,11 +133,8 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 	transform(vote.begin(), vote.end(), vote.begin(), bind2nd(divides<unsigned int>(), totalWeight / 2 + 1));
 	cout << "\n\n\n\n";
 	m_predictions = createDataFromRange(vote);
-	//cout << m_predictions << endl;
 }
 
-template<class T>
-ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis){
-	output << hypothesis.m_predictions;
-	return output;
+void RandomForest::train(ClassificationDataset const& trainingset){
+	m_trainer.train(m_classifier, trainingset);
 }
