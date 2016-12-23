@@ -17,56 +17,58 @@ using namespace shark;
 using namespace std;
 
 template<class Classfier>
-class MLMethod{
+class Hypothesis
+{
 public:
-	MLMethod();
-	void trainFeedForwardNN(ClassificationDataset const& trainingset);
-	void testFeedForwardNN(UnlabeledData<RealVector> const& testset);
-	double evaluateLoss(Data<unsigned int> const& testLabel);
-	//Train the classifier with the given trainer type.
-	template<class TrainerType> void train(ClassificationDataset const& trainingset);
 	//Test the trained classifier.
 	void test(UnlabeledData<RealVector> const& testset);
-	//Precondition: indivs specify the number of members of the commitee.
-	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs);
+	double evaluateLoss(Data<unsigned int> const& testLabel);
 	//Output the predictions with generated hypothesis.
 	template<class T>
-	friend ostream& operator <<(ostream& output, const MLMethod<T>& method);
-
-private:
+	friend ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis);
+protected:
 	Classfier m_classifier;
 	double m_error;
 	Data<unsigned int> m_predictions;
 };
 
-int main()
+class FeedForwardNeuralNetwork : public Hypothesis<FFNet<FastSigmoidNeuron, LinearNeuron> >
 {
+public:
+	void trainFeedForwardNN(ClassificationDataset const& trainingset);
+	//Precondition: indivs specify the number of members of the commitee.
+	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs);
+};
+
+class RandomForest : public Hypothesis<RFClassifier>
+{
+public:
+	void train(ClassificationDataset const& trainingset);
+private:
+	RFTrainer m_trainer;
+};
+
+int main(){
 	ClassificationDataset trainingset, testset;
 	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
 	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
-	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
+	FeedForwardNeuralNetwork FFNN;
 	FFNN.trainFeedForwardNN(trainingset);
 	FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
 	//FFNN.ensemble(trainingset, testset, 100);
 	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
-	MLMethod<RFClassifier> RF;
-	RF.train<RFTrainer>(trainingset);
+	RandomForest RF;
+	RF.train(trainingset);
 	RF.test(testset.inputs());
 	//RF.ensemble(trainingset, testset, 1);
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
 
-template<class Classfier>
-MLMethod<Classfier>::MLMethod(){
-	m_error = 1.0;
-}
-
-template<class Classfier>
-void MLMethod<Classfier>::trainFeedForwardNN(ClassificationDataset const& trainingset){
+void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& trainingset){
 
 	//create a feed forward neural network with one layer of 10 hidden neurons and one output for every class
 	m_classifier.setStructure(inputDimension(trainingset), 10, numberOfClasses(trainingset));
@@ -82,28 +84,24 @@ void MLMethod<Classfier>::trainFeedForwardNN(ClassificationDataset const& traini
 	trainer.train(m_classifier, trainingset);
 }
 
-template<class Classfier>
-template<class TrainerType>
-void MLMethod<Classfier>::train(ClassificationDataset const& trainingset){
-	TrainerType trainer;
-	trainer.train(m_classifier, trainingset);
+void RandomForest::train(ClassificationDataset const& trainingset){
+	m_trainer.train(m_classifier, trainingset);
 }
 
 template<class Classfier>
-void MLMethod<Classfier>::test(UnlabeledData<RealVector> const& testset){
+void Hypothesis<Classfier>::test(UnlabeledData<RealVector> const& testset){
 	ArgMaxConverter<Classfier> converter(m_classifier);
 	m_predictions = converter(testset);
 }
 
 template<class Classfier>
-double MLMethod<Classfier>::evaluateLoss(Data<unsigned int> const& testLabel){
+double Hypothesis<Classfier>::evaluateLoss(Data<unsigned int> const& testLabel){
 	ZeroOneLoss<> loss;
 	m_error = loss(testLabel, m_predictions);
 	return m_error;
 }
 
-template<class Classfier>
-void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
+void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, unsigned int const& indivs){
 	size_t predictSize = testset.numberOfElements();
 	vector<unsigned int> vote(predictSize, 0);
 
@@ -111,12 +109,8 @@ void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, Cla
 	Elements indivElements;
 	unsigned int totalWeight = 0;
 	for (size_t i = 0; i < indivs; ++i){
-
-		MLMethod<RFClassifier> individual;
-		individual.train<RFTrainer>(trainingset);
-
-		//MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > individual;
-		//individual.trainFeedForwardNN(trainingset);
+		FeedForwardNeuralNetwork individual;
+		individual.trainFeedForwardNN(trainingset);
 		individual.test(testset.inputs());
 		double indivLoss = individual.evaluateLoss(testset.labels());
 		unsigned int indivWeight = (1 - indivLoss) * 10000000;
@@ -137,7 +131,7 @@ void MLMethod<Classfier>::ensemble(ClassificationDataset const& trainingset, Cla
 }
 
 template<class T>
-ostream& operator <<(ostream& output, const MLMethod<T>& method){
-	output << method.m_predictions;
+ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis){
+	output << hypothesis.m_predictions;
 	return output;
 }
