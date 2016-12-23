@@ -54,8 +54,11 @@ private:
 
 int main(){
 	ClassificationDataset trainingset, testset;
-	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
-	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
+	//importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
+	//importCSV(testset, "data/testdata.csv", LAST_COLUMN);
+	importCSV(trainingset, "data/Tradata.csv", LAST_COLUMN);
+	trainingset.shuffle();
+	testset = splitAtElement(trainingset, static_cast<size_t>(0.6*trainingset.numberOfElements()));
 
 	//FeedForwardNeuralNetwork FFNN(trainingset);
 	//FFNN.trainFeedForwardNN(trainingset);
@@ -85,8 +88,21 @@ void Hypothesis<Classfier>::test(UnlabeledData<RealVector> const& testset){
 
 template<class Classfier>
 double Hypothesis<Classfier>::evaluateLoss(Data<unsigned int> const& testLabel){
-	ZeroOneLoss<> loss;
-	m_error = loss(testLabel, m_predictions);
+	//ZeroOneLoss<> loss;
+	//m_error = loss(testLabel, m_predictions);
+	//return m_error;
+	Data<unsigned int> answer(testLabel);
+	typedef Data<unsigned int>::element_range Elements;
+	Elements predictions = m_predictions.elements();
+	Elements answers = answer.elements();
+
+	double miss = 0;
+	for (auto pos1 = predictions.begin(), pos2 = answers.begin(); pos2 != answers.end(); ++pos1, ++pos2){
+		if (*pos1 != *pos2){
+			miss++;
+		}
+	}
+	m_error = miss / testLabel.numberOfElements();
 	return m_error;
 }
 
@@ -115,9 +131,11 @@ template<class Classfier>
 void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset){
 	FeedForwardNeuralNetwork FFNN(trainingset);
 	FFNN.ensemble(trainingset, testset, 100);
+	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 	RandomForest RF;
 	RF.train(trainingset);
 	RF.test(testset.inputs());
+	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 
 	size_t predictSize = testset.numberOfElements();
 	vector<double> vote(predictSize, 0);
