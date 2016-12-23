@@ -45,17 +45,17 @@ int main()
 	importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
 	importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 
-	//MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
-	//FFNN.trainFeedForwardNN(trainingset);
-	//FFNN.test(testset.inputs());
+	MLMethod<FFNet<FastSigmoidNeuron, LinearNeuron> > FFNN;
+	FFNN.trainFeedForwardNN(trainingset);
+	FFNN.test(testset.inputs());
 	//cout << FFNN << endl;
 	//FFNN.ensemble(trainingset, testset, 100);
-	//cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
+	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
 
 	MLMethod<RFClassifier> RF;
-	//RF.train<RFTrainer>(trainingset);
-	//RF.test(testset.inputs());
-	RF.ensemble(trainingset, testset, 100);
+	RF.train<RFTrainer>(trainingset);
+	RF.test(testset.inputs());
+	//RF.ensemble(trainingset, testset, 1);
 	//cout << RF << endl;
 	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
 }
