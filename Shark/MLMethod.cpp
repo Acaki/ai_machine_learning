@@ -23,6 +23,7 @@ public:
 	//Test the trained classifier.
 	void test(UnlabeledData<RealVector> const& testset);
 	double evaluateLoss(Data<unsigned int> const& testLabel);
+	double getError() {return m_error;}
 	vector<double> calWeightedVote();
 	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset);
 	//Output the predictions with generated predictions.
@@ -139,7 +140,7 @@ void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, C
 
 	size_t predictSize = testset.numberOfElements();
 	vector<double> vote(predictSize, 0);
-	double totalWeight = (1 - FFNN.evaluateLoss(testset.labels())) + (1 - RF.evaluateLoss(testset.labels()));
+	double totalWeight = (1 - FFNN.getError()) + (1 - RF.getError());
 
 	vector<double> FFNNweightedVote = FFNN.calWeightedVote();
 	vector<double> RFweightedVote = RF.calWeightedVote();
