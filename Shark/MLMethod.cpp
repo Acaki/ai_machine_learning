@@ -60,21 +60,6 @@ int main(){
 	trainingset.shuffle();
 	testset = splitAtElement(trainingset, static_cast<size_t>(0.8*trainingset.numberOfElements()));
 
-	//FeedForwardNeuralNetwork FFNN(trainingset);
-	//FFNN.trainFeedForwardNN(trainingset);
-	//FFNN.test(testset.inputs());
-	//cout << FFNN << endl;
-	//FFNN.ensemble(trainingset, testset, 100);
-	//cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
-
-
-	//RandomForest RF;
-	//RF.train(trainingset);
-	//RF.test(testset.inputs());
-	//RF.ensemble(trainingset, testset, 1);
-	//cout << RF << endl;
-	//cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
-
 	Hypothesis<RFClassifier> h;
 	h.ensemble(trainingset, testset, unlabeledset);
 	cout << h << endl;
@@ -199,12 +184,11 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 		//Now generate the predictions according to unlabeledset.
 		individual.test(unlabeledset);
 
-
 		weightedVote = individual.calWeightedVote();
 		transform(unlabeledVote.begin(), unlabeledVote.end(), weightedVote.begin(), unlabeledVote.begin(), plus<double>());
 
 		totalWeight += indivWeight;
-		cout << "weight " << i << " = " << indivWeight << endl;
+		//cout << "weight " << i << " = " << indivWeight << endl;
 	}
 	//Determine majority
 	for (auto &pos: testVote){
