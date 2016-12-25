@@ -24,7 +24,7 @@ public:
 	double evaluateLoss(Data<unsigned int> const& testLabel);
 	double getError() {return m_error;}
 	vector<double> calWeightedVote();
-	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset);
+	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> const& unlabeledset);
 	//Output the predictions with generated predictions.
 	template<class T>
 	friend ostream& operator <<(ostream& output, const Hypothesis<T>& hypothesis);
@@ -40,7 +40,7 @@ public:
 	FeedForwardNeuralNetwork() {}
 	FeedForwardNeuralNetwork(ClassificationDataset const& trainingset);
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
-	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset);
+	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> const& unlabeledset);
 };
 
 class RandomForest : public Hypothesis<RFClassifier>
@@ -130,10 +130,10 @@ vector<double> Hypothesis<Classfier>::calWeightedVote(){
 }
 
 template<class Classfier>
-void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset){
+void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> const& unlabeledset){
 	FeedForwardNeuralNetwork FFNN(trainingset);
 	//Generate the final predictions for the unlabeledset
-	FFNN.ensemble(trainingset, testset, 100);
+	FFNN.ensemble(trainingset, testset, unlabeledset);
 
 	RandomForest RF;
 	RF.train(trainingset);
@@ -144,7 +144,7 @@ void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, C
 	//Now generate predictions for unlabeledset, while the error rate remains the same.
 	RF.test(unlabeledset);
 
-	size_t predictSize = testset.numberOfElements();
+	size_t predictSize = unlabeledset.numberOfElements();
 	//Vector that accumulates the weighted votes
 	vector<double> vote(predictSize, 0);
 	double totalWeight = (1 - FFNN.getError()) + (1 - RF.getError());
@@ -177,7 +177,7 @@ void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& t
 	trainer.train(m_classifier, trainingset);
 }
 
-void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset){
+void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> const& unlabeledset){
 	size_t testSize = testset.numberOfElements();
 	size_t unlabeledSize = unlabeledset.numberOfElements();
 	//Vector for storing weighted votes for testset
@@ -198,6 +198,8 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 
 		//Now generate the predictions according to unlabeledset.
 		individual.test(unlabeledset);
+
+
 		weightedVote = individual.calWeightedVote();
 		transform(unlabeledVote.begin(), unlabeledVote.end(), weightedVote.begin(), unlabeledVote.begin(), plus<double>());
 
