@@ -40,7 +40,6 @@ public:
 	FeedForwardNeuralNetwork() {}
 	FeedForwardNeuralNetwork(ClassificationDataset const& trainingset);
 	void trainFeedForwardNN(ClassificationDataset const& trainingset);
-	//Precondition: indivs specify the number of members of the commitee.
 	void ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset);
 };
 
@@ -55,8 +54,7 @@ private:
 int main(){
 	ClassificationDataset trainingset, testset;
 	UnlabeledData<RealVector> unlabeledset;
-	//importCSV(trainingset, "data/traindata.csv", LAST_COLUMN);
-	//importCSV(testset, "data/testdata.csv", LAST_COLUMN);
+
 	importCSV(trainingset, "data/Tradata.csv", LAST_COLUMN);
 	importCSV(unlabeledset, "data/T2.csv");
 	trainingset.shuffle();
@@ -142,7 +140,7 @@ void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, C
 	//Generate predictions for testset
 	RF.test(testset.inputs());
 	//Evaluate error rate for testset
-	RF.evaluateLoss(testset.inputs());
+	RF.evaluateLoss(testset.labels());
 	//Now generate predictions for unlabeledset, while the error rate remains the same.
 	RF.test(unlabeledset);
 
@@ -188,7 +186,7 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 	vector<double> unlabeledVote(unlabeledSize, 0);
 
 	double totalWeight = 0;
-	for (size_t i = 0; i < indivs; ++i){
+	for (size_t i = 0; i < 100; ++i){
 		FeedForwardNeuralNetwork individual(trainingset);
 		individual.trainFeedForwardNN(trainingset);
 		//Calculate individual weight according to error rate of testset.
@@ -201,7 +199,7 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 		//Now generate the predictions according to unlabeledset.
 		individual.test(unlabeledset);
 		weightedVote = individual.calWeightedVote();
-		transform(vote.begin(), vote.end(), weightedVote.begin(), vote.begin(), plus<double>());
+		transform(unlabeledVote.begin(), unlabeledVote.end(), weightedVote.begin(), unlabeledVote.begin(), plus<double>());
 
 		totalWeight += indivWeight;
 		cout << "weight " << i << " = " << indivWeight << endl;
