@@ -134,14 +134,20 @@ vector<double> Hypothesis<Classfier>::calWeightedVote(){
 template<class Classfier>
 void Hypothesis<Classfier>::ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> unlabeledset){
 	FeedForwardNeuralNetwork FFNN(trainingset);
+	//Generate the final predictions for the unlabeledset
 	FFNN.ensemble(trainingset, testset, 100);
-	cout << "FFNN error = " << FFNN.evaluateLoss(testset.labels()) << endl;
+
 	RandomForest RF;
 	RF.train(trainingset);
+	//Generate predictions for testset
 	RF.test(testset.inputs());
-	cout << "RF error = " << RF.evaluateLoss(testset.labels()) << endl;
+	//Evaluate error rate for testset
+	RF.evaluateLoss(testset.inputs());
+	//Now generate predictions for unlabeledset, while the error rate remains the same.
+	RF.test(unlabeledset);
 
 	size_t predictSize = testset.numberOfElements();
+	//Vector that accumulates the weighted votes
 	vector<double> vote(predictSize, 0);
 	double totalWeight = (1 - FFNN.getError()) + (1 - RF.getError());
 
@@ -200,6 +206,7 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 	}
 
 	vector<unsigned int> finalPredictions(vote.begin(), vote.end());
+	//Assign predictions for unlabeledset
 	m_predictions = createDataFromRange(finalPredictions);
 }
 
