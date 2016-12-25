@@ -816,10 +816,6 @@ shark/Core/Traits/ProxyReferenceTraits.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
-../Shark/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
-shark/ObjectiveFunctions/Loss/AbstractLoss.h
--
-
 ../Shark/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
@@ -1070,8 +1066,6 @@ shark/Algorithms/Trainers/RFTrainer.h
 shark/ObjectiveFunctions/Loss/CrossEntropy.h
 -
 shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
--
-shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
 -
 shark/Algorithms/Trainers/OptimizationTrainer.h
 -

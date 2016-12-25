@@ -99,7 +99,6 @@ CMakeFiles/MLMethod.dir/MLMethod.cpp.o
  ../Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
  ../Shark/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
  ../Shark/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
- ../Shark/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
  ../Shark/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
  ../Shark/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
  ../Shark/include/shark/Rng/AbstractDistribution.h

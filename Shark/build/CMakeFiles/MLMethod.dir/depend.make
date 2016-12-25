@@ -98,7 +98,6 @@ CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunction
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
-CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
 CMakeFiles/MLMethod.dir/MLMethod.cpp.o: ../Shark/include/shark/Rng/AbstractDistribution.h

@@ -6,7 +6,6 @@
 #include <shark/Algorithms/Trainers/RFTrainer.h> //the random forest trainer
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
-#include <shark/ObjectiveFunctions/Loss/SquaredHingeLoss.h>
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
 #include <iostream>
@@ -59,7 +58,7 @@ int main(){
 	//importCSV(testset, "data/testdata.csv", LAST_COLUMN);
 	importCSV(trainingset, "data/Tradata.csv", LAST_COLUMN);
 	trainingset.shuffle();
-	testset = splitAtElement(trainingset, static_cast<size_t>(0.6*trainingset.numberOfElements()));
+	testset = splitAtElement(trainingset, static_cast<size_t>(0.8*trainingset.numberOfElements()));
 
 	//FeedForwardNeuralNetwork FFNN(trainingset);
 	//FFNN.trainFeedForwardNN(trainingset);
@@ -79,6 +78,8 @@ int main(){
 	Hypothesis<RFClassifier> h;
 	h.ensemble(trainingset, testset);
 	cout << "ensemble error = " << h.evaluateLoss(testset.labels()) << endl;
+
+	return 0;
 }
 
 template<class Classfier>
@@ -160,7 +161,7 @@ FeedForwardNeuralNetwork::FeedForwardNeuralNetwork(ClassificationDataset const& 
 }
 
 void FeedForwardNeuralNetwork::trainFeedForwardNN(ClassificationDataset const& trainingset){
-	SquaredHingeLoss loss;
+	CrossEntropy loss;
 	//Improved Resilient-Backpropagation-algorithm with weight-backtracking
 	IRpropPlus optimizer;
 	MaxIterations<> maxIterations(100);
