@@ -1050,14 +1050,14 @@ cmath
 istream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/MLMethod.cpp
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
 shark/Data/Csv.h
 -
 shark/Data/Dataset.h
 -
-shark/Models/Converter.h
--
 shark/Models/FFNet.h
+-
+shark/Models/Converter.h
 -
 shark/Algorithms/GradientDescent/Rprop.h
 -
@@ -1077,6 +1077,26 @@ algorithm
 -
 functional
 -
+Hypothesis.tpp
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.tpp
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.tpp
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/MLMethod.cpp
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+SupervisedMethod.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp
+SupervisedMethod.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
 
 /usr/include/atlas/cblas.h
 

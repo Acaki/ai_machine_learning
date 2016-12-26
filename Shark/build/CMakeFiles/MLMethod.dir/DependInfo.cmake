@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/media/sf_Downloads/Documents/AI/hw4/Shark/MLMethod.cpp" "/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles/MLMethod.dir/MLMethod.cpp.o"
+  "/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp" "/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles/MLMethod.dir/SupervisedMethod.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

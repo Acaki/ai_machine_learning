@@ -150,6 +150,33 @@ MLMethod.cpp.s:
 	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.s
 .PHONY : MLMethod.cpp.s
 
+SupervisedMethod.o: SupervisedMethod.cpp.o
+
+.PHONY : SupervisedMethod.o
+
+# target to build an object file
+SupervisedMethod.cpp.o:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/SupervisedMethod.cpp.o
+.PHONY : SupervisedMethod.cpp.o
+
+SupervisedMethod.i: SupervisedMethod.cpp.i
+
+.PHONY : SupervisedMethod.i
+
+# target to preprocess a source file
+SupervisedMethod.cpp.i:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/SupervisedMethod.cpp.i
+.PHONY : SupervisedMethod.cpp.i
+
+SupervisedMethod.s: SupervisedMethod.cpp.s
+
+.PHONY : SupervisedMethod.s
+
+# target to generate assembly for a file
+SupervisedMethod.cpp.s:
+	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/SupervisedMethod.cpp.s
+.PHONY : SupervisedMethod.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... MLMethod.o"
 	@echo "... MLMethod.i"
 	@echo "... MLMethod.s"
+	@echo "... SupervisedMethod.o"
+	@echo "... SupervisedMethod.i"
+	@echo "... SupervisedMethod.s"
 .PHONY : help
 
 

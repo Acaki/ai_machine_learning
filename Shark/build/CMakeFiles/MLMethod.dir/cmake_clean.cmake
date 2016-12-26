@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MLMethod.dir/MLMethod.cpp.o"
+  "CMakeFiles/MLMethod.dir/SupervisedMethod.cpp.o"
   "MLMethod.pdb"
   "MLMethod"
 )
