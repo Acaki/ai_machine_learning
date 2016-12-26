@@ -8,11 +8,13 @@ int main(){
 	UnlabeledData<RealVector> unlabeledset;
 
 	importCSV(trainingset, "data/Tradata.csv", LAST_COLUMN);
-	importCSV(unlabeledset, "data/T2.csv");
+	importCSV(unlabeledset, "data/input.csv");
 	trainingset.shuffle();
 	testset = splitAtElement(trainingset, static_cast<size_t>(0.8*trainingset.numberOfElements()));
 
-	cout << ensemble(trainingset, testset, unlabeledset)  << endl;
+	Data<unsigned int> predictions = ensemble(trainingset, testset, unlabeledset);
+	exportCSV(predictions, "data/output.csv");
+	cout << predictions  << endl;
 
 	return 0;
 }
