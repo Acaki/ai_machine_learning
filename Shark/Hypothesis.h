@@ -8,7 +8,6 @@
 #include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
 #include <shark/Algorithms/Trainers/RFTrainer.h> //the random forest trainer
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
-#include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h> //The real loss for testing.
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
 #include <iostream>

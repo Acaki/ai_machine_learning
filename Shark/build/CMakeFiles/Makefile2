@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark
 CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/MLMethod.dir
+# Target rules for target CMakeFiles/hypothesis.dir
 
 # All Build rule for target.
-CMakeFiles/MLMethod.dir/all:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/depend
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=1,2,3 "Built target MLMethod"
-.PHONY : CMakeFiles/MLMethod.dir/all
+CMakeFiles/hypothesis.dir/all:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/depend
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=1,2,3 "Built target hypothesis"
+.PHONY : CMakeFiles/hypothesis.dir/all
 
 # Include target in all.
-all: CMakeFiles/MLMethod.dir/all
+all: CMakeFiles/hypothesis.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MLMethod.dir/rule: cmake_check_build_system
+CMakeFiles/hypothesis.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MLMethod.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/hypothesis.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles 0
-.PHONY : CMakeFiles/MLMethod.dir/rule
+.PHONY : CMakeFiles/hypothesis.dir/rule
 
 # Convenience name for target.
-MLMethod: CMakeFiles/MLMethod.dir/rule
+hypothesis: CMakeFiles/hypothesis.dir/rule
 
-.PHONY : MLMethod
-
-# clean rule for target.
-CMakeFiles/MLMethod.dir/clean:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/clean
-.PHONY : CMakeFiles/MLMethod.dir/clean
+.PHONY : hypothesis
 
 # clean rule for target.
-clean: CMakeFiles/MLMethod.dir/clean
+CMakeFiles/hypothesis.dir/clean:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/clean
+.PHONY : CMakeFiles/hypothesis.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/hypothesis.dir/clean
 
 .PHONY : clean
 

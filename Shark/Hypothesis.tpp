@@ -1,5 +1,3 @@
-#include "Hypothesis.h"
-
 template<class Classifier>
 void Hypothesis<Classifier>::test(UnlabeledData<RealVector> const& testset){
   ArgMaxConverter<Classifier> converter(m_classifier);

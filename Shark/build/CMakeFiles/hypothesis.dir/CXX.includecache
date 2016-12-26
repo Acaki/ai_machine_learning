@@ -1065,8 +1065,6 @@ shark/Algorithms/Trainers/RFTrainer.h
 -
 shark/ObjectiveFunctions/Loss/CrossEntropy.h
 -
-shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
--
 shark/Algorithms/Trainers/OptimizationTrainer.h
 -
 shark/Algorithms/StoppingCriteria/MaxIterations.h
@@ -1082,12 +1080,6 @@ Hypothesis.tpp
 
 /media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.tpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/MLMethod.cpp
-Hypothesis.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
-SupervisedMethod.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
-
 /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp
 SupervisedMethod.h
 /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
@@ -1095,6 +1087,12 @@ SupervisedMethod.h
 /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
 Hypothesis.h
 /media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/main.cpp
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+SupervisedMethod.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
 
 /usr/include/atlas/cblas.h
 
