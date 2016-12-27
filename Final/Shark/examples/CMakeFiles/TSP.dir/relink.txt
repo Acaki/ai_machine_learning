@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp -O3 -DNDEBUG    CMakeFiles/TSP.dir/EA/SOO/TSP.cpp.o  -o CMakeFiles/CMakeRelink.dir/TSP -rdynamic ../lib/libshark.a -lboost_serialization -lboost_filesystem -lboost_system -llapack /usr/lib/libblas/libblas.so /usr/lib/atlas-base/libatlas.so 

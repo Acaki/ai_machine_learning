@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,44 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MLMethod
+# Target rules for targets named hypothesis
 
 # Build rule for target.
-MLMethod: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MLMethod
-.PHONY : MLMethod
+hypothesis: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hypothesis
+.PHONY : hypothesis
 
 # fast build rule for target.
-MLMethod/fast:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/build
-.PHONY : MLMethod/fast
+hypothesis/fast:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/build
+.PHONY : hypothesis/fast
 
-MLMethod.o: MLMethod.cpp.o
+SupervisedMethod.o: SupervisedMethod.cpp.o
 
-.PHONY : MLMethod.o
+.PHONY : SupervisedMethod.o
 
 # target to build an object file
-MLMethod.cpp.o:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.o
-.PHONY : MLMethod.cpp.o
+SupervisedMethod.cpp.o:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o
+.PHONY : SupervisedMethod.cpp.o
 
-MLMethod.i: MLMethod.cpp.i
+SupervisedMethod.i: SupervisedMethod.cpp.i
 
-.PHONY : MLMethod.i
+.PHONY : SupervisedMethod.i
 
 # target to preprocess a source file
-MLMethod.cpp.i:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.i
-.PHONY : MLMethod.cpp.i
+SupervisedMethod.cpp.i:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.i
+.PHONY : SupervisedMethod.cpp.i
 
-MLMethod.s: MLMethod.cpp.s
+SupervisedMethod.s: SupervisedMethod.cpp.s
 
-.PHONY : MLMethod.s
+.PHONY : SupervisedMethod.s
 
 # target to generate assembly for a file
-MLMethod.cpp.s:
-	$(MAKE) -f CMakeFiles/MLMethod.dir/build.make CMakeFiles/MLMethod.dir/MLMethod.cpp.s
-.PHONY : MLMethod.cpp.s
+SupervisedMethod.cpp.s:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.s
+.PHONY : SupervisedMethod.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/hypothesis.dir/build.make CMakeFiles/hypothesis.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -156,12 +183,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MLMethod"
-	@echo "... MLMethod.o"
-	@echo "... MLMethod.i"
-	@echo "... MLMethod.s"
+	@echo "... edit_cache"
+	@echo "... hypothesis"
+	@echo "... SupervisedMethod.o"
+	@echo "... SupervisedMethod.i"
+	@echo "... SupervisedMethod.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
