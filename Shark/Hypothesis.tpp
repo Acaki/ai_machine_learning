@@ -1,5 +1,8 @@
 template<class Classifier>
 void Hypothesis<Classifier>::test(UnlabeledData<RealVector> const& testset){
+  //This converter can be used  to concatenate with other classifiers
+  //and convert the predictions that generated in that classifier to
+  //value of 0 or 1.
   ArgMaxConverter<Classifier> converter(m_classifier);
   m_predictions = converter(testset);
 }
@@ -26,11 +29,12 @@ vector<double> Hypothesis<Classifier>::calWeightedVote(){
   vector<double> weightedVote;
   typedef Data<unsigned int>::element_range Elements;
   Elements indivElements = m_predictions.elements();
+  //Copy the elements of the predictions to result vector
   for (auto const &pos: indivElements){
     weightedVote.push_back(pos);
   }
   double indivWeight = 1 - m_error;
-  //Multiply each vote with a weight proportional to its error rate.
+  //Multiply each prediction by its weight.
   transform(weightedVote.begin(), weightedVote.end(), weightedVote.begin(), bind2nd(multiplies<double>(), indivWeight));
 
   return weightedVote;

@@ -38,12 +38,9 @@ void FeedForwardNeuralNetwork::ensemble(ClassificationDataset const& trainingset
 
 		//Now generate the predictions according to unlabeledset.
 		individual.test(unlabeledset);
-
 		weightedVote = individual.calWeightedVote();
 		transform(unlabeledVote.begin(), unlabeledVote.end(), weightedVote.begin(), unlabeledVote.begin(), plus<double>());
-
 		totalWeight += indivWeight;
-		//cout << "weight " << i << " = " << indivWeight << endl;
 	}
 	//Determine majority
 	for (auto &pos: testVote){
