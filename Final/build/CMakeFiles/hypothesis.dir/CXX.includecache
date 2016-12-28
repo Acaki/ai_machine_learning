@@ -6,53 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/media/sf_Downloads/Documents/AI/hw4/Final/Hypothesis.h
-shark/Data/Csv.h
--
-shark/Data/Dataset.h
--
-shark/Models/FFNet.h
--
-shark/Models/Converter.h
--
-shark/Algorithms/GradientDescent/Rprop.h
--
-shark/Algorithms/Trainers/RFTrainer.h
--
-shark/ObjectiveFunctions/Loss/CrossEntropy.h
--
-shark/Algorithms/Trainers/OptimizationTrainer.h
--
-shark/Algorithms/StoppingCriteria/MaxIterations.h
--
-iostream
--
-algorithm
--
-functional
--
-Hypothesis.tpp
-/media/sf_Downloads/Documents/AI/hw4/Final/Hypothesis.tpp
-
-/media/sf_Downloads/Documents/AI/hw4/Final/Hypothesis.tpp
-
-/media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.cpp
-SupervisedMethod.h
-/media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.h
-
-/media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.h
-Hypothesis.h
-/media/sf_Downloads/Documents/AI/hw4/Final/Hypothesis.h
-
-/media/sf_Downloads/Documents/AI/hw4/Final/main.cpp
-fstream
--
-Hypothesis.h
-/media/sf_Downloads/Documents/AI/hw4/Final/Hypothesis.h
-SupervisedMethod.h
-/media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.h
-
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/build/include/shark/Core/Shark.h
+../Shark/build/include/shark/Core/Shark.h
 boost/version.hpp
 -
 boost/assign.hpp
@@ -70,33 +24,33 @@ map
 string
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/AbstractOptimizer.h
+../Shark/include/shark/Algorithms/AbstractOptimizer.h
 shark/ObjectiveFunctions/AbstractObjectiveFunction.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/AbstractSingleObjectiveOptimizer.h
+../Shark/include/shark/Algorithms/AbstractSingleObjectiveOptimizer.h
 shark/Algorithms/AbstractOptimizer.h
 -
 shark/Core/ResultSets.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/GradientDescent/Rprop.h
+../Shark/include/shark/Algorithms/GradientDescent/Rprop.h
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/AbstractSingleObjectiveOptimizer.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
+../Shark/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/StoppingCriteria/MaxIterations.h
+../Shark/include/shark/Algorithms/StoppingCriteria/MaxIterations.h
 AbstractStoppingCriterion.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
+../Shark/include/shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
 shark/Core/ResultSets.h
 -
 shark/LinAlg/Base.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/Trainers/AbstractTrainer.h
+../Shark/include/shark/Algorithms/Trainers/AbstractTrainer.h
 shark/Core/INameable.h
 -
 shark/Core/ISerializable.h
@@ -106,7 +60,7 @@ shark/Data/Dataset.h
 shark/Models/AbstractModel.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/Trainers/CARTcommon.h
+../Shark/include/shark/Algorithms/Trainers/CARTcommon.h
 shark/Models/Trees/General.h
 -
 shark/Data/DataView.h
@@ -118,7 +72,7 @@ vector
 utility
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/Trainers/OptimizationTrainer.h
+../Shark/include/shark/Algorithms/Trainers/OptimizationTrainer.h
 shark/Algorithms/AbstractSingleObjectiveOptimizer.h
 -
 shark/Core/ResultSets.h
@@ -132,7 +86,7 @@ shark/Algorithms/Trainers/AbstractTrainer.h
 shark/Algorithms/StoppingCriteria/AbstractStoppingCriterion.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Algorithms/Trainers/RFTrainer.h
+../Shark/include/shark/Algorithms/Trainers/RFTrainer.h
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/Trainers/AbstractTrainer.h
@@ -146,33 +100,33 @@ shark/Algorithms/Trainers/CARTcommon.h
 set
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/DLLSupport.h
+../Shark/include/shark/Core/DLLSupport.h
 boost/config.hpp
 -
 shark/Core/Shark.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/Exception.h
+../Shark/include/shark/Core/Exception.h
 string
 -
 exception
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/Flags.h
+../Shark/include/shark/Core/Flags.h
 shark/Core/Exception.h
 -
 shark/Core/ISerializable.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/INameable.h
+../Shark/include/shark/Core/INameable.h
 string
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/IParameterizable.h
+../Shark/include/shark/Core/IParameterizable.h
 shark/LinAlg/Base.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/ISerializable.h
+../Shark/include/shark/Core/ISerializable.h
 boost/version.hpp
 -
 boost/serialization/split_member.hpp
@@ -194,7 +148,7 @@ boost/archive/polymorphic_text_oarchive.hpp
 vector
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/Math.h
+../Shark/include/shark/Core/Math.h
 boost/math/constants/constants.hpp
 -
 boost/math/special_functions/sign.hpp
@@ -210,7 +164,7 @@ type_traits
 shark/Core/Exception.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/OpenMP.h
+../Shark/include/shark/Core/OpenMP.h
 shark/Core/Shark.h
 -
 omp.h
@@ -218,25 +172,25 @@ omp.h
 boost/config.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/ResultSets.h
+../Shark/include/shark/Core/ResultSets.h
 ostream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/State.h
+../Shark/include/shark/Core/State.h
 boost/cast.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/Traits/ProxyReferenceTraits.h
+../Shark/include/shark/Core/Traits/ProxyReferenceTraits.h
 string
 -
 shark/LinAlg/Base.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/CanBeCalled.h
+../Shark/include/shark/Core/utility/CanBeCalled.h
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
+../Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
 boost/version.hpp
 -
 boost/iterator/iterator_facade.hpp
@@ -246,17 +200,17 @@ boost/iterator/detail/config_def.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/Iterators.h
+../Shark/include/shark/Core/utility/Iterators.h
 boost/version.hpp
 -
 Impl/boost_iterator_facade_fixed.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
+../Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
 shark/Core/utility/Range.h
 -
 boost/range/iterator.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/Range.h
+../Shark/include/shark/Core/utility/Range.h
 boost/range.hpp
 -
 utility
@@ -264,15 +218,15 @@ utility
 shark/Core/Exception.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/ZipPair.h
+../Shark/include/shark/Core/utility/ZipPair.h
 shark/Core/utility/Range.h
 -
 Impl/boost_iterator_facade_fixed.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
+../Shark/include/shark/Core/utility/Impl/boost_iterator_facade_fixed.hpp
 utility
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Core/utility/functional.h
+../Shark/include/shark/Core/utility/functional.h
 boost/range/numeric.hpp
 -
 boost/range/algorithm/nth_element.hpp
@@ -286,7 +240,7 @@ algorithm
 shark/Rng/GlobalRng.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/BatchInterface.h
+../Shark/include/shark/Data/BatchInterface.h
 shark/LinAlg/Base.h
 -
 shark/Core/utility/Iterators.h
@@ -298,7 +252,7 @@ boost/mpl/if.hpp
 type_traits
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/Csv.h
+../Shark/include/shark/Data/Csv.h
 shark/Core/DLLSupport.h
 -
 shark/Data/Dataset.h
@@ -308,7 +262,7 @@ fstream
 string
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/DataView.h
+../Shark/include/shark/Data/DataView.h
 shark/Data/Dataset.h
 -
 shark/Core/utility/functional.h
@@ -316,7 +270,7 @@ shark/Core/utility/functional.h
 numeric
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/Dataset.h
+../Shark/include/shark/Data/Dataset.h
 boost/range/iterator_range.hpp
 -
 shark/Core/Exception.h
@@ -328,9 +282,9 @@ shark/Core/utility/functional.h
 shark/Rng/GlobalRng.h
 -
 Impl/Dataset.inl
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/Impl/Dataset.inl
+../Shark/include/shark/Data/Impl/Dataset.inl
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/Impl/Dataset.inl
+../Shark/include/shark/Data/Impl/Dataset.inl
 shark/Data/BatchInterface.h
 -
 shark/Core/ISerializable.h
@@ -362,19 +316,19 @@ boost/serialization/shared_ptr.hpp
 algorithm
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Data/WeightedDataset.h
+../Shark/include/shark/Data/WeightedDataset.h
 shark/Data/Dataset.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 kernels/matrix_assign.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/matrix_assign.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/matrix_assign.hpp
 kernels/vector_assign.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
 detail/traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/blas.h
+../Shark/include/shark/LinAlg/BLAS/blas.h
 shark/Core/Shark.h
 -
 shark/LinAlg/BLAS/vector_proxy.hpp
@@ -398,31 +352,31 @@ shark/LinAlg/BLAS/permutation.hpp
 shark/LinAlg/BLAS/io.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/evaluation_tags.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/evaluation_tags.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
 vector_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
 vector_expression_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_expression_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_expression_classes.hpp
 matrix_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
 matrix_expression_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_expression_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_expression_classes.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/functional.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/functional.hpp
 boost/math/constants/constants.hpp
 -
 boost/math/special_functions/atanh.hpp
 -
 traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 shark/Core/Exception.h
 -
 shark/Core/Math.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
 boost/mpl/if.hpp
 -
 shark/Core/Exception.h
@@ -432,35 +386,35 @@ iterator
 type_traits
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_expression_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_expression_classes.hpp
 ../kernels/gemv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
 ../kernels/tpmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/tpmv.hpp
 ../kernels/trmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/trmv.hpp
 ../kernels/gemm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/gemm.hpp
 ../kernels/trmm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/trmm.hpp
 ../kernels/sum_rows.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/sum_rows.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/sum_rows.hpp
 ../assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 type_traits
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
 ../assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 iterator.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
 evaluation_tags.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/evaluation_tags.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/evaluation_tags.hpp
 ../expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 boost/mpl/eval_if.hpp
 -
 boost/range/iterator.hpp
@@ -470,31 +424,31 @@ complex
 type_traits
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_expression_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_expression_classes.hpp
 ../assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 iterator.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
 traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
 iterator.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/iterator.hpp
 traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/io.hpp
+../Shark/include/shark/LinAlg/BLAS/io.hpp
 iosfwd
 -
 sstream
 -
 expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 boost/intrusive/list.hpp
 -
 Accelerate/Accelerate.h
@@ -508,123 +462,123 @@ complex
 boost/mpl/bool.hpp
 -
 ../../detail/traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemm.hpp
 cblas_inc.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemv.hpp
 cblas_inc.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/tpmv.hpp
 cblas_inc.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmm.hpp
 cblas_inc.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmv.hpp
 cblas_inc.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/cblas_inc.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/dot.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/dot.hpp
 ../../detail/traits.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/traits.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/gemm.hpp
 ../gemv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
 ../../vector.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector.hpp
+../Shark/include/shark/LinAlg/BLAS/vector.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/gemv.hpp
 ../../expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/tpmv.hpp
 ../../expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/trmm.hpp
 shark/LinAlg/BLAS/kernels/trmv.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/trmv.hpp
 ../../expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 boost/mpl/bool.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/dot.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/dot.hpp
 default/dot.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/dot.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/dot.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/gemm.hpp
 default/gemm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/gemm.hpp
 cblas/gemm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemm.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/gemv.hpp
 default/gemv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/gemv.hpp
 cblas/gemv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/gemv.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/matrix_assign.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/matrix_assign.hpp
 vector_assign.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
 algorithm
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/sum_rows.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/sum_rows.hpp
 ../assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/tpmv.hpp
 cblas/tpmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/tpmv.hpp
 default/tpmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/tpmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/tpmv.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/trmm.hpp
 cblas/trmm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmm.hpp
 default/trmm.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/trmm.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/trmm.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/trmv.hpp
 cblas/trmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/cblas/trmv.hpp
 default/trmv.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/default/trmv.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/default/trmv.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/vector_assign.hpp
 ../detail/functional.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/functional.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/functional.hpp
 ../expression_types.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/expression_types.hpp
+../Shark/include/shark/LinAlg/BLAS/expression_types.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/matrix.hpp
+../Shark/include/shark/LinAlg/BLAS/matrix.hpp
 detail/matrix_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
 array
 -
 initializer_list
@@ -638,29 +592,29 @@ boost/serialization/nvp.hpp
 boost/serialization/vector.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/matrix_expression.hpp
+../Shark/include/shark/LinAlg/BLAS/matrix_expression.hpp
 detail/expression_optimizers.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
 boost/utility/enable_if.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/matrix_proxy.hpp
+../Shark/include/shark/LinAlg/BLAS/matrix_proxy.hpp
 detail/expression_optimizers.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/matrix_sparse.hpp
+../Shark/include/shark/LinAlg/BLAS/matrix_sparse.hpp
 assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 detail/matrix_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/matrix_proxy_classes.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/permutation.hpp
+../Shark/include/shark/LinAlg/BLAS/permutation.hpp
 vector.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector.hpp
+../Shark/include/shark/LinAlg/BLAS/vector.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector.hpp
+../Shark/include/shark/LinAlg/BLAS/vector.hpp
 detail/vector_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
 boost/container/vector.hpp
 -
 array
@@ -674,23 +628,23 @@ boost/serialization/collection_size_type.hpp
 boost/serialization/array.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector_expression.hpp
+../Shark/include/shark/LinAlg/BLAS/vector_expression.hpp
 detail/expression_optimizers.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
 kernels/dot.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/kernels/dot.hpp
+../Shark/include/shark/LinAlg/BLAS/kernels/dot.hpp
 boost/utility/enable_if.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector_proxy.hpp
+../Shark/include/shark/LinAlg/BLAS/vector_proxy.hpp
 detail/expression_optimizers.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/expression_optimizers.hpp
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/vector_sparse.hpp
+../Shark/include/shark/LinAlg/BLAS/vector_sparse.hpp
 assignment.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/assignment.hpp
+../Shark/include/shark/LinAlg/BLAS/assignment.hpp
 detail/vector_proxy_classes.hpp
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
+../Shark/include/shark/LinAlg/BLAS/detail/vector_proxy_classes.hpp
 vector
 -
 boost/serialization/collection_size_type.hpp
@@ -700,7 +654,7 @@ boost/serialization/nvp.hpp
 boost/serialization/vector.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Base.h
+../Shark/include/shark/LinAlg/Base.h
 shark/LinAlg/BLAS/blas.h
 -
 shark/Core/Exception.h
@@ -716,7 +670,7 @@ boost/serialization/deque.hpp
 deque
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Impl/Initialize.h
+../Shark/include/shark/LinAlg/Impl/Initialize.h
 shark/Core/Exception.h
 -
 shark/LinAlg/BLAS/blas.h
@@ -726,19 +680,19 @@ iterator
 boost/preprocessor/punctuation/comma.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Initialize.h
+../Shark/include/shark/LinAlg/Initialize.h
 Impl/Initialize.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Impl/Initialize.h
+../Shark/include/shark/LinAlg/Impl/Initialize.h
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Metrics.h
+../Shark/include/shark/LinAlg/Metrics.h
 shark/LinAlg/BLAS/blas.h
 -
 shark/Core/Math.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/LinAlg/Tools.h
+../Shark/include/shark/LinAlg/Tools.h
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/AbstractModel.h
+../Shark/include/shark/Models/AbstractModel.h
 shark/Core/Flags.h
 -
 shark/Core/IParameterizable.h
@@ -752,13 +706,13 @@ shark/Rng/Normal.h
 shark/Data/Dataset.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/Converter.h
+../Shark/include/shark/Models/Converter.h
 shark/Core/DLLSupport.h
 -
 shark/Models/AbstractModel.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/FFNet.h
+../Shark/include/shark/Models/FFNet.h
 shark/Models/AbstractModel.h
 -
 shark/Models/Neurons.h
@@ -766,13 +720,13 @@ shark/Models/Neurons.h
 boost/serialization/vector.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/MeanModel.h
+../Shark/include/shark/Models/MeanModel.h
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/Neurons.h
+../Shark/include/shark/Models/Neurons.h
 shark/LinAlg/Base.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/Trees/CARTClassifier.h
+../Shark/include/shark/Models/Trees/CARTClassifier.h
 shark/Models/AbstractModel.h
 -
 shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
@@ -782,11 +736,11 @@ shark/ObjectiveFunctions/Loss/SquaredLoss.h
 shark/Data/Dataset.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/Trees/General.h
+../Shark/include/shark/Models/Trees/General.h
 memory
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Models/Trees/RFClassifier.h
+../Shark/include/shark/Models/Trees/RFClassifier.h
 shark/Models/Trees/CARTClassifier.h
 -
 shark/Models/Trees/General.h
@@ -796,13 +750,13 @@ shark/Models/MeanModel.h
 shark/Data/DataView.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
+../Shark/include/shark/ObjectiveFunctions/AbstractConstraintHandler.h
 shark/Core/Exception.h
 -
 shark/Core/Flags.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/AbstractCost.h
+../Shark/include/shark/ObjectiveFunctions/AbstractCost.h
 shark/LinAlg/Base.h
 -
 shark/Core/INameable.h
@@ -812,7 +766,7 @@ shark/Core/Flags.h
 shark/Data/Dataset.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/AbstractObjectiveFunction.h
+../Shark/include/shark/ObjectiveFunctions/AbstractObjectiveFunction.h
 shark/Core/INameable.h
 -
 shark/Core/Exception.h
@@ -824,7 +778,7 @@ shark/LinAlg/Base.h
 shark/ObjectiveFunctions/AbstractConstraintHandler.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/ErrorFunction.h
+../Shark/include/shark/ObjectiveFunctions/ErrorFunction.h
 shark/Models/AbstractModel.h
 -
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
@@ -836,21 +790,21 @@ shark/Data/Dataset.h
 shark/Data/WeightedDataset.h
 -
 Impl/FunctionWrapperBase.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
+../Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
 boost/scoped_ptr.hpp
 -
 Impl/ErrorFunction.inl
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Impl/ErrorFunction.inl
+../Shark/include/shark/ObjectiveFunctions/Impl/ErrorFunction.inl
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Impl/ErrorFunction.inl
+../Shark/include/shark/ObjectiveFunctions/Impl/ErrorFunction.inl
 shark/Core/OpenMP.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
+../Shark/include/shark/ObjectiveFunctions/Impl/FunctionWrapperBase.h
 shark/ObjectiveFunctions/AbstractObjectiveFunction.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
+../Shark/include/shark/ObjectiveFunctions/Loss/AbstractLoss.h
 shark/ObjectiveFunctions/AbstractCost.h
 -
 shark/LinAlg/Base.h
@@ -858,25 +812,25 @@ shark/LinAlg/Base.h
 shark/Core/Traits/ProxyReferenceTraits.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
+../Shark/include/shark/ObjectiveFunctions/Loss/CrossEntropy.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
+../Shark/include/shark/ObjectiveFunctions/Loss/SquaredLoss.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
+../Shark/include/shark/ObjectiveFunctions/Loss/ZeroOneLoss.h
 shark/ObjectiveFunctions/Loss/AbstractLoss.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/AbstractDistribution.h
+../Shark/include/shark/Rng/AbstractDistribution.h
 shark/Core/Exception.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Core/Exception.h
+../Shark/include/shark/Rng/shark/Core/Exception.h
 shark/Core/Math.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Core/Math.h
+../Shark/include/shark/Rng/shark/Core/Math.h
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Bernoulli.h
+../Shark/include/shark/Rng/Bernoulli.h
 shark/Rng/Rng.h
 -
 boost/random.hpp
@@ -884,7 +838,7 @@ boost/random.hpp
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Binomial.h
+../Shark/include/shark/Rng/Binomial.h
 shark/Rng/Rng.h
 -
 boost/random.hpp
@@ -896,7 +850,7 @@ boost/random/binomial_distribution.hpp
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Cauchy.h
+../Shark/include/shark/Rng/Cauchy.h
 shark/Core/Math.h
 -
 shark/Rng/Rng.h
@@ -908,7 +862,7 @@ boost/random/cauchy_distribution.hpp
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/DiffGeometric.h
+../Shark/include/shark/Rng/DiffGeometric.h
 shark/Rng/Rng.h
 -
 boost/random.hpp
@@ -920,7 +874,7 @@ iostream
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Dirichlet.h
+../Shark/include/shark/Rng/Dirichlet.h
 shark/Rng/Gamma.h
 -
 shark/Rng/Rng.h
@@ -936,7 +890,7 @@ vector
 iostream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/DiscreteUniform.h
+../Shark/include/shark/Rng/DiscreteUniform.h
 shark/Rng/Rng.h
 -
 boost/random.hpp
@@ -948,11 +902,11 @@ cmath
 limits
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Entropy.h
+../Shark/include/shark/Rng/Entropy.h
 shark/Core/Exception.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Erlang.h
+../Shark/include/shark/Rng/Erlang.h
 shark/Rng/Gamma.h
 -
 boost/random/uniform_01.hpp
@@ -964,7 +918,7 @@ vector
 iostream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Gamma.h
+../Shark/include/shark/Rng/Gamma.h
 boost/random/uniform_01.hpp
 -
 cmath
@@ -972,11 +926,11 @@ cmath
 iostream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Geometric.h
+../Shark/include/shark/Rng/Geometric.h
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/GlobalRng.h
+../Shark/include/shark/Rng/GlobalRng.h
 shark/Rng/Rng.h
 -
 shark/Rng/Bernoulli.h
@@ -1020,7 +974,7 @@ boost/random.hpp
 vector
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/HyperGeometric.h
+../Shark/include/shark/Rng/HyperGeometric.h
 cmath
 -
 boost/random/uniform_01.hpp
@@ -1028,11 +982,11 @@ boost/random/uniform_01.hpp
 iostream
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/KullbackLeiberDivergence.h
+../Shark/include/shark/Rng/KullbackLeiberDivergence.h
 shark/Core/Exception.h
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/LogNormal.h
+../Shark/include/shark/Rng/LogNormal.h
 shark/Core/Math.h
 -
 boost/random/lognormal_distribution.hpp
@@ -1040,19 +994,19 @@ boost/random/lognormal_distribution.hpp
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/NegExponential.h
+../Shark/include/shark/Rng/NegExponential.h
 boost/random/exponential_distribution.hpp
 -
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Normal.h
+../Shark/include/shark/Rng/Normal.h
 shark/Core/Math.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Core/Math.h
+../Shark/include/shark/Rng/shark/Core/Math.h
 shark/Rng/AbstractDistribution.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Rng/AbstractDistribution.h
+../Shark/include/shark/Rng/shark/Rng/AbstractDistribution.h
 shark/Rng/Rng.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Rng/Rng.h
+../Shark/include/shark/Rng/shark/Rng/Rng.h
 boost/math/special_functions.hpp
 -
 boost/random.hpp
@@ -1060,7 +1014,7 @@ boost/random.hpp
 cmath
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Poisson.h
+../Shark/include/shark/Rng/Poisson.h
 shark/Rng/Rng.h
 -
 boost/random.hpp
@@ -1068,21 +1022,21 @@ boost/random.hpp
 boost/random/poisson_distribution.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Rng.h
+../Shark/include/shark/Rng/Rng.h
 boost/random/mersenne_twister.hpp
 -
 boost/random/linear_congruential.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Uniform.h
+../Shark/include/shark/Rng/Uniform.h
 shark/Rng/AbstractDistribution.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Rng/AbstractDistribution.h
+../Shark/include/shark/Rng/shark/Rng/AbstractDistribution.h
 shark/Rng/Rng.h
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/shark/Rng/Rng.h
+../Shark/include/shark/Rng/shark/Rng/Rng.h
 boost/random.hpp
 -
 
-/media/sf_Downloads/Documents/AI/hw4/Shark/Shark/include/shark/Rng/Weibull.h
+../Shark/include/shark/Rng/Weibull.h
 shark/Core/Exception.h
 -
 shark/Rng/Rng.h
@@ -1095,6 +1049,52 @@ cmath
 -
 istream
 -
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+shark/Data/Csv.h
+-
+shark/Data/Dataset.h
+-
+shark/Models/FFNet.h
+-
+shark/Models/Converter.h
+-
+shark/Algorithms/GradientDescent/Rprop.h
+-
+shark/Algorithms/Trainers/RFTrainer.h
+-
+shark/ObjectiveFunctions/Loss/CrossEntropy.h
+-
+shark/Algorithms/Trainers/OptimizationTrainer.h
+-
+shark/Algorithms/StoppingCriteria/MaxIterations.h
+-
+iostream
+-
+algorithm
+-
+functional
+-
+Hypothesis.tpp
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.tpp
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.tpp
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp
+SupervisedMethod.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+
+/media/sf_Downloads/Documents/AI/hw4/Shark/main.cpp
+fstream
+-
+Hypothesis.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/Hypothesis.h
+SupervisedMethod.h
+/media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.h
 
 /usr/include/atlas/cblas.h
 

@@ -2,7 +2,10 @@
 #include "Hypothesis.h"
 #include "SupervisedMethod.h"
 
+//This function evaluates the final predictions of the program by doing weighted voting
+//for predictions of RF and predictions of ensemble NN.
 vector<unsigned int> ensemble(ClassificationDataset const& trainingset, ClassificationDataset const& testset, UnlabeledData<RealVector> const& unlabeledset);
+//Write the final predictions into data/output.csv
 void outputToFile(vector<unsigned int> const& output);
 
 int main(){
@@ -14,6 +17,8 @@ int main(){
 	importCSV(unlabeledset, "data/input.csv");
 	cout << "Loading unlabeled set from data/input.csv - ok" << endl;
 	trainingset.shuffle();
+	//testset will hold 20% of the training set and trainingset will hold 80% of its original data
+	//after this function call.
 	testset = splitAtElement(trainingset, static_cast<size_t>(0.8*trainingset.numberOfElements()));
 
 	cout << "Now generating predictions for unlabeled set ..." << endl;
@@ -45,11 +50,13 @@ vector<unsigned int> ensemble(ClassificationDataset const& trainingset, Classifi
 
   vector<double> FFNNweightedVote = FFNN.calWeightedVote();
   vector<double> RFweightedVote = RF.calWeightedVote();
+	//Add up the predictions of FFNN and RF into result vector
   transform(vote.begin(), vote.end(), FFNNweightedVote.begin(), vote.begin(), plus<double>());
   transform(vote.begin(), vote.end(), RFweightedVote.begin(), vote.begin(), plus<double>());
   for (auto &pos: vote){
     pos = (totalWeight - pos) >= (pos - 0) ? 0 : 1;
   }
+	//Simple type casting for vector using its constructor.
   vector<unsigned int> finalPredictions(vote.begin(), vote.end());
 	return finalPredictions;
 }

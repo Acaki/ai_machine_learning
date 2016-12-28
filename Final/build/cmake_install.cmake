@@ -1,4 +1,4 @@
-# Install script for directory: /media/sf_Downloads/Documents/AI/hw4/Final
+# Install script for directory: /media/sf_Downloads/Documents/AI/hw4/Shark
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/sf_Downloads/Documents/AI/hw4/Final/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/sf_Downloads/Documents/AI/hw4/Shark/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/sf_Downloads/Documents/AI/hw4/Final
+CMAKE_SOURCE_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Final/build
+CMAKE_BINARY_DIR = /media/sf_Downloads/Documents/AI/hw4/Shark/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/hypothesis.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/hypothesis.dir/flags.make
 
 CMakeFiles/hypothesis.dir/main.cpp.o: CMakeFiles/hypothesis.dir/flags.make
 CMakeFiles/hypothesis.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hypothesis.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hypothesis.dir/main.cpp.o -c /media/sf_Downloads/Documents/AI/hw4/Final/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hypothesis.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hypothesis.dir/main.cpp.o -c /media/sf_Downloads/Documents/AI/hw4/Shark/main.cpp
 
 CMakeFiles/hypothesis.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hypothesis.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Downloads/Documents/AI/hw4/Final/main.cpp > CMakeFiles/hypothesis.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Downloads/Documents/AI/hw4/Shark/main.cpp > CMakeFiles/hypothesis.dir/main.cpp.i
 
 CMakeFiles/hypothesis.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hypothesis.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Downloads/Documents/AI/hw4/Final/main.cpp -o CMakeFiles/hypothesis.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Downloads/Documents/AI/hw4/Shark/main.cpp -o CMakeFiles/hypothesis.dir/main.cpp.s
 
 CMakeFiles/hypothesis.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/hypothesis.dir/main.cpp.o.provides.build: CMakeFiles/hypothesis.dir/m
 
 CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o: CMakeFiles/hypothesis.dir/flags.make
 CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o: ../SupervisedMethod.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o -c /media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o -c /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp
 
 CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.cpp > CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp > CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.i
 
 CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Downloads/Documents/AI/hw4/Final/SupervisedMethod.cpp -o CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Downloads/Documents/AI/hw4/Shark/SupervisedMethod.cpp -o CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.s
 
 CMakeFiles/hypothesis.dir/SupervisedMethod.cpp.o.requires:
 
@@ -122,7 +122,7 @@ hypothesis: /usr/lib/x86_64-linux-gnu/libboost_system.so
 hypothesis: /usr/lib/liblapack.so
 hypothesis: /usr/lib/libblas/libblas.so
 hypothesis: /usr/lib/atlas-base/libatlas.so
-hypothesis: /media/sf_Downloads/Documents/AI/hw4/Shark/Shark/build/lib/libshark.a
+hypothesis: ../Shark/build/lib/libshark.a
 hypothesis: /usr/lib/x86_64-linux-gnu/libboost_serialization.so
 hypothesis: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 hypothesis: /usr/lib/x86_64-linux-gnu/libboost_system.so
@@ -130,7 +130,7 @@ hypothesis: /usr/lib/liblapack.so
 hypothesis: /usr/lib/libblas/libblas.so
 hypothesis: /usr/lib/atlas-base/libatlas.so
 hypothesis: CMakeFiles/hypothesis.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable hypothesis"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable hypothesis"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hypothesis.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -148,6 +148,6 @@ CMakeFiles/hypothesis.dir/clean:
 .PHONY : CMakeFiles/hypothesis.dir/clean
 
 CMakeFiles/hypothesis.dir/depend:
-	cd /media/sf_Downloads/Documents/AI/hw4/Final/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/sf_Downloads/Documents/AI/hw4/Final /media/sf_Downloads/Documents/AI/hw4/Final /media/sf_Downloads/Documents/AI/hw4/Final/build /media/sf_Downloads/Documents/AI/hw4/Final/build /media/sf_Downloads/Documents/AI/hw4/Final/build/CMakeFiles/hypothesis.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/sf_Downloads/Documents/AI/hw4/Shark/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/sf_Downloads/Documents/AI/hw4/Shark /media/sf_Downloads/Documents/AI/hw4/Shark /media/sf_Downloads/Documents/AI/hw4/Shark/build /media/sf_Downloads/Documents/AI/hw4/Shark/build /media/sf_Downloads/Documents/AI/hw4/Shark/build/CMakeFiles/hypothesis.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hypothesis.dir/depend
 
