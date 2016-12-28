@@ -12,10 +12,12 @@ int main(){
 	ClassificationDataset trainingset, testset;
 	UnlabeledData<RealVector> unlabeledset;
 
-	importCSV(trainingset, "data/Tradata.csv", LAST_COLUMN);
-	cout << "Loading training set from data/Tradata.csv - ok" << endl;
+	cout << "Loading training set from data/TraData.csv";
+	importCSV(trainingset, "data/TraData.csv", LAST_COLUMN);
+	cout << " - ok" << endl;
+	cout << "Loading unlabeled set from data/input.csv";
 	importCSV(unlabeledset, "data/input.csv");
-	cout << "Loading unlabeled set from data/input.csv - ok" << endl;
+	cout << " - ok" << endl;
 	trainingset.shuffle();
 	//testset will hold 20% of the training set and trainingset will hold 80% of its original data
 	//after this function call.
