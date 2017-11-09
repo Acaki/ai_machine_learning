@@ -2,16 +2,19 @@
 #define HYPOTHESIS_H
 
 #include <shark/Data/Csv.h>
-#include <shark/Data/Dataset.h>
-#include <shark/Models/FFNet.h> //Feed forward neural network class
-#include <shark/Models/Converter.h>
-#include <shark/Algorithms/GradientDescent/Rprop.h> //Optimization algorithm
 #include <shark/Algorithms/Trainers/RFTrainer.h> //The random forest trainer
 #include <shark/ObjectiveFunctions/Loss/CrossEntropy.h> //Loss used for training
 #include <shark/Algorithms/Trainers/OptimizationTrainer.h> // Trainer wrapping iterative optimization
 #include <shark/Algorithms/StoppingCriteria/MaxIterations.h> //A simple stopping criterion that stops after a fixed number of iterations
 #include <iostream>
 #include <algorithm>
+#include <functional>
+#include <functional>
+#include <functional>
+#include <functional>
+#include <functional>
+#include <functional>
+#include <functional>
 #include <functional>
 
 using namespace shark;
